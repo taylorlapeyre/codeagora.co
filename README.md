@@ -9,6 +9,10 @@
 
 **[Rails][rails]** - a popular MVC web framework built on ruby
 
+#### The Database
+
+**[PostgreSQL][postgre]** - a fast, secure, and modern relational database
+
 
 #### The Server
 
@@ -46,20 +50,23 @@ $ bundle exec rake db:migrate
 
 4. Start up the rails server
 
-``` bash
+```
 $ rails server
 ```
 
-## Other Useful Software
+## Other Useful Things
 
 - [Sublime Text][subl] - a popular text editor
 - [Screenhero][screenhero] - screen sharing made for remote developers
+- [IRC][irc] - We can use the IRC channel *#lsucompsci* on freenode to talk about the project
 
 
-[ruby]: http://ruby-lang.com
+[ruby]: https://www.ruby-lang.org/en/
 [rails]: http://guides.rubyonrails.org/getting_started.html
 [heroku]: https://www.heroku.com/
 [git]: http://gitref.org/
 [subl]: http://www.sublimetext.com/
 [screenhero]: http://screenhero.com/
 [github]: https://github.com/
+[postgre]: http://www.postgresql.org/
+[irc]: http://webchat.freenode.net/?channels=lsucompsci
