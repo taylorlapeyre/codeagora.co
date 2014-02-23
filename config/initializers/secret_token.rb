@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Anything::Application.config.secret_key_base = '606fa3a74777e6b683cc041d2af19ce845bb418477740275b0d1e7b280487daa54f8e90ba72a254e4097102a286288b942bcedbd3909d787490d7b4eed8760fd'
+Agora::Application.config.secret_key_base = '7f394f84dc15fa2d63e8bcdc76aadfa980476f7ddadcd2dd7d4a0eb61ccb574d4ede07146c91f4ba81fa6ea0bc63f20540fd4af1ad1fd4002b6c52725fb7a703'

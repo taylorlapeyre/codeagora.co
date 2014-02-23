@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Anything::Application.load_tasks
+Agora::Application.load_tasks
