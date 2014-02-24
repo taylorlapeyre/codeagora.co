@@ -1,3 +1,7 @@
+## [Application Spec][spec]
+
+Read this first.
+
 ## The Things
 
 #### The Language
@@ -70,3 +74,4 @@ $ rails server
 [github]: https://github.com/
 [postgre]: http://www.postgresql.org/
 [irc]: http://webchat.freenode.net/?channels=lsucompsci
+[spec]: https://docs.google.com/document/d/13zR1kAtHhCP0CI6najiTOtRcOdG9E93Je5OW2Vu1K_s/edit?usp=sharing
