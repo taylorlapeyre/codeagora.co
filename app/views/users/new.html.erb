@@ -1,0 +1,22 @@
+<% if flash[:error] %>
+  <% flash[:error].each do |message, somethingelse| %>
+    <%= "#{message} - #{somethingelse}" %>
+  <% end %>
+<% end %>
+
+<% if signed_in? %>
+  <h1><%= current_user.username %></h1>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <br>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Create User" %>
+<% end %>
