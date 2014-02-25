@@ -159,7 +159,7 @@ DEPENDENCIES
   coffee-rails
   guard
   guard-rspec
-  jbuilder (~> 1.2)
+  jbuilder
   jquery-rails
   rails (= 4.0.3)
   rspec-rails
