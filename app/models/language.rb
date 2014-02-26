@@ -8,7 +8,7 @@ class Language < ActiveRecord::Base
     }[name] || name.downcase
   end
 
-  def syntax_colored_description
+  def pretty_description
     require 'pygmentize'
     Pygmentize.process(description, to_pygments)
   end

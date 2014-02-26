@@ -9,26 +9,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    - if signed_in?
-      .navbar.clearfix        
-        .column.half
-          %p
-            = link_to "Languages", languages_path
-            = link_to "Sign Out", signout_path, via: :delete
-        .column.half.nav
-          %p
-            You're signed in as
-            %strong= current_user.username
-    - else
-      .hero.clearfix
-        .container
-          %h1.logo= link_to "Agora", root_url
-          %p Sharing code has never been more fun
-          %p
-            = link_to "Sign In", signin_path
-            |
-            = link_to "Sign Up", signup_path
-
+    = render 'layouts/header'
     - if flash.any?
       - flash.each do |key, value|
         %section.clearfix{:class => "alert #{key}"}

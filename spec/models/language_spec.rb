@@ -25,6 +25,7 @@ describe Language do
 
   it 'should know how to syntax color its description' do
     Pygmentize.stub(:process) { 'correct' }
-    expect(@language.syntax_colored_description).to eq 'correct'
+    expect(Pygmentize).to receive(:process).with(@language.description, @language.to_pygments)
+    expect(@language.pretty_description).to eq 'correct'
   end
 end

@@ -2,4 +2,4 @@
   %h3
     = link_to language.name, language
     / Total Snippets: #{language.snippets.count}
-  = preserve raw language.syntax_colored_description
+  = preserve raw language.pretty_description
