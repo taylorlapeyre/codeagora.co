@@ -32,7 +32,10 @@ body {
   margin: 0;
   display: inline-block;
   text-transform: uppercase;
-  border-bottom: 5px solid #FFF;
+  border: 1px solid #FFF;
+  padding: 5px;
+  border-radius: 10px;
+  font-family: "Oswald", inherit;
 }
 
 pre {
