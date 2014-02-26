@@ -27,5 +27,20 @@ hello() {
   {name: 'Clojure', description: %Q{
 (defn hello [name]
   (println "Hello, " name "!"))
-  }}
+  }},
+
+  {name: 'C', description: %Q{
+void hello(char *name) {
+  while (*name) {
+    putchar(*name);
+    name++;
+  }
+}
+  }},
+
+  {name: 'Javascript', description: %Q{
+var hello = function(name) {
+  console.log(name);
+}
+  }},
 ])

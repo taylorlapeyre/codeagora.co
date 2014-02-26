@@ -45,7 +45,7 @@ pre {
   padding: 1.5em 1em;
 
   &.small {
-    padding: 1em 1em;
+    padding: 1em;
   }
 
   &.notice {
@@ -56,5 +56,28 @@ pre {
   &.error {
     background-color: $red;
     color: #FFF;
+  }
+}
+
+.navbar {
+  background-color: $green;
+  padding: 1em;
+  height: 100px;
+  color: #FFF;
+  overflow: hidden;
+
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+
+  a {
+    text-decoration: none;
+    color: #FFF;
+    padding-right: 1em;
+  }
+
+  &:hover {
+    height: 200px;
   }
 }

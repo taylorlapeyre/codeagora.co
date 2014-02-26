@@ -10,6 +10,7 @@ gem 'pygmentize'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
+gem 'jquery-rails'
 gem 'haml'
 
 group :development do

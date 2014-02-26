@@ -10,10 +10,15 @@
   %body
     - if signed_in?
       .row.clearfix
-        .alert.notice.small{:style => 'text-align: right'}
+        .navbar{:style => 'text-align: right'}
           %p
             You're signed in as
             %strong= current_user.username
+          %br
+          %p
+            = link_to "Sign Out", signout_path, via: :delete
+            = link_to "Languages", languages_path
+            = link_to "Snippets", languages_path
     - else
       .hero.clearfix
         .container
