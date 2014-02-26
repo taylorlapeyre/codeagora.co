@@ -1,0 +1,11 @@
+%h2 Sign In
+
+= form_for :session, url: sessions_path do |f|
+  .form-group
+    = f.label :username
+    = f.text_field :username
+  .form-group
+    = f.label :password
+    = f.password_field :password
+  .form-group
+    = f.submit "Sign In"

@@ -5,11 +5,11 @@ gem 'sqlite3'
 gem 'jbuilder'
 gem 'bcrypt-ruby'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'uglifier'
-  gem 'coffee-rails'
-end
+# assets
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'haml'
 
 group :development do
   gem 'better_errors'

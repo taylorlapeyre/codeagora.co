@@ -1,0 +1,23 @@
+%h2 Create an Account
+
+- if @user.errors.any?
+  %p
+    %strong Check Yourself.
+  - @user.errors.full_messages.each do |message|
+    %p= message
+
+= form_for @user do |f|
+  .form-group
+    = f.label :username
+    = f.text_field :username
+  .form-group
+    = f.label :email
+    = f.email_field :email
+  .form-group
+    = f.label :password
+    = f.password_field :password
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  .form-group
+    = f.submit "Create User"
