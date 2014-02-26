@@ -40,7 +40,21 @@ void hello(char *name) {
 
   {name: 'Javascript', description: %Q{
 var hello = function(name) {
-  console.log(name);
+  console.log("Hello, " + name + "!");
 }
+  }},
+
+  {name: 'Java', description: %Q{
+public static void hello(String name) {
+  System.out.println("Hello, " + name + "!");
+}
+  }},
+
+  {name: 'PHP', description: %Q{
+<?php
+  function hello(name) {
+    echo "Hello, " . name . "!";
+  }
+?>
   }},
 ])

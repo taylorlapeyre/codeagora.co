@@ -14,22 +14,23 @@ body {
   text-align: center;
   min-height: 250px;
   padding-top: 50px;
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   h1 {
     margin: 0;
+    display: inline-block;
     text-transform: uppercase;
-    border-bottom: 3px solid #FFF;
-    border-radius: 3px;
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    border-bottom: 5px solid #FFF;
   }
 }
 
 pre {
   font-size: 80%;
+  font-family: "Source Code Pro", monospace;
 }
 
 .language-box {

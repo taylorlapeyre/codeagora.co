@@ -4,6 +4,7 @@
     %title Agora
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400,600"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Code+Pro"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -24,6 +25,10 @@
         .container
           %h1= link_to "Agora", root_url
           %p Sharing code has never been more fun
+          %p
+            = link_to "Sign In", signin_path
+            |
+            = link_to "Sign Up", signup_path
 
     - if flash.any?
       - flash.each do |key, value|

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     if signed_in?
-      flash[:error] = "You're already signed in as #{current_user.username}"
+      flash.now[:error] = "You're already signed in."
       redirect_to root_url
     end
   end
