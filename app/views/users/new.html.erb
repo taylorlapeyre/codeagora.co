@@ -1,11 +1,10 @@
-<% if flash[:error] %>
-  <% flash[:error].each do |message, somethingelse| %>
-    <%= "#{message} - #{somethingelse}" %>
-  <% end %>
-<% end %>
+<h2>Create an Account</h2>
 
-<% if signed_in? %>
-  <h1><%= current_user.username %></h1>
+<% if @user.errors.any? %>
+  <p><strong>Check Yourself.</strong></p>
+  <% @user.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
 <% end %>
 
 <%= form_for @user do |f| %>
@@ -17,6 +16,9 @@
   <br>
   <%= f.label :password %>
   <%= f.password_field :password %>
+  <br>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br>
 
   <%= f.submit "Create User" %>
 <% end %>

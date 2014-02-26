@@ -9,13 +9,12 @@ class UsersController < ApplicationController
       sign_in @user
       redirect_to root_url
     else
-      flash[:error] = @user.errors
       render :new
     end
   end
 
   private
     def user_params
-      params.require(:user).permit(:username, :password, :email)
+      params.require(:user).permit(:username, :password, :password_confirmation, :email)
     end
 end
