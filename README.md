@@ -52,7 +52,13 @@ $ bundle install
 $ bundle exec rake db:migrate
 ```
 
-4. Start up the rails server
+4. Put some seed data in your development database
+
+``` bash
+$ bundle exec rake db:seed
+```
+
+5. Start up the rails server
 
 ```
 $ rails server
