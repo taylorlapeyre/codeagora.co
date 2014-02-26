@@ -1,7 +1,7 @@
 /* Colors */
 $black: #333;
 $blue: #497bad;
-$green: #1ABC9C;
+$green: #2ECC71;
 $red: #E74C3C;
 
 body {
@@ -50,11 +50,7 @@ pre {
 }
 
 .alert {
-  padding: 1.5em 1em;
-
-  &.small {
-    padding: 1em;
-  }
+  padding: 1em;
 
   &.notice {
     background-color: $green;

@@ -13,6 +13,7 @@
     - if flash.any?
       - flash.each do |key, value|
         %section.clearfix{:class => "alert #{key}"}
-          .container= value
+          .container
+            %strong= value
 
     = yield
