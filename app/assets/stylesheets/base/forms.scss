@@ -1,0 +1,47 @@
+/* Colors */
+$black: #333;
+$blue: #497bad;
+$green: #1ABC9C;
+
+form {
+  .form-group {
+    margin: 1em 0;
+
+    &:nth-of-type(2) {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+    }
+
+    input[type="text"] {
+      -webkit-appearance: none;
+      padding: 0.3em;
+      outline: none;
+      border: 1px solid lighten($black, 20%);
+
+      &:focus {
+        -webkit-transition-duration: 0.2s;
+        -moz-transition-duration: 0.2s;
+        -o-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        border: 1px solid $blue;
+      }
+    }
+
+    input[type="email"], input[type="password"] {
+      @extend input[type="text"];
+    }
+
+    input[type="submit"] {
+      background: $blue;
+      color: #FFF;
+      border: 1px solid darken($blue, 10%);
+      border-bottom: 3px solid darken($blue, 20%);
+      padding: 0.3em 0.5em;
+      border-radius: 3px;
+    }
+  }
+}

@@ -2,14 +2,21 @@
 %html
   %head
     %title Agora
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400,600"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    - if signed_in?
-      %h1 Signed in as #{current_user.username}
+    - if !signed_in?
+      %header.clearfix
+        .container
+          %h1= link_to "Agora", root_url
+          %p Sharing code has never been more fun
 
-    - flash.each do |key, value|
-      %div{:class => "alert alert-#{key}"}= value
+    - if flash.any?
+      - flash.each do |key, value|
+        %section.clearfix{:class => "alert #{key}"}
+          .container= value
 
     = yield

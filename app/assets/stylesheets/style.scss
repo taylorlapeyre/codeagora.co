@@ -1,0 +1,36 @@
+/* Colors */
+$black: #333;
+$blue: #497bad;
+$green: #1ABC9C;
+
+body {
+  color: $black;
+}
+
+header {
+  background-color: $blue;
+  color: #FFF;
+  text-align: center;
+  min-height: 250px;
+  padding-top: 50px;
+
+  h1 {
+    margin: 0;
+    text-transform: uppercase;
+    border-bottom: 3px solid #FFF;
+    border-radius: 3px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+.alert {
+  padding: 1.5em 0;
+  &.notice {
+    background-color: $green;
+    color: #FFF;
+  }
+}
