@@ -8,8 +8,14 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    - if !signed_in?
-      %header.clearfix
+    - if signed_in?
+      .row.clearfix
+        .alert.notice.small{:style => 'text-align: right'}
+          %p
+            You're signed in as
+            %strong= current_user.username
+    - else
+      .hero.clearfix
         .container
           %h1= link_to "Agora", root_url
           %p Sharing code has never been more fun

@@ -4,6 +4,7 @@ gem 'rails', '4.0.3'
 gem 'sqlite3'
 gem 'jbuilder'
 gem 'bcrypt-ruby'
+gem 'pygmentize'
 
 # assets
 gem 'sass-rails'

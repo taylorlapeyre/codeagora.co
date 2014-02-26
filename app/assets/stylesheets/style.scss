@@ -2,12 +2,13 @@
 $black: #333;
 $blue: #497bad;
 $green: #1ABC9C;
+$red: #E74C3C;
 
 body {
   color: $black;
 }
 
-header {
+.hero {
   background-color: $blue;
   color: #FFF;
   text-align: center;
@@ -27,10 +28,33 @@ header {
   }
 }
 
+pre {
+  font-size: 80%;
+}
+
+.language-box {
+  border-bottom: 1px solid lighten($black, 60%);
+
+  a {
+    text-decoration: none;
+    color: $blue;
+  }
+}
+
 .alert {
-  padding: 1.5em 0;
+  padding: 1.5em 1em;
+
+  &.small {
+    padding: 1em 1em;
+  }
+
   &.notice {
     background-color: $green;
+    color: #FFF;
+  }
+
+  &.error {
+    background-color: $red;
     color: #FFF;
   }
 }

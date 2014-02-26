@@ -5,3 +5,27 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Language.create([
+  {name: 'Ruby', description: %Q{
+def hello(name)
+  puts "Hello, \#{name}!"
+end
+  }},
+
+  {name: 'Python', description: %Q{
+def hello(name):
+  print("Hello, {}!".format(name))
+  }},
+
+  {name: 'Bash', description: %Q{
+hello() {
+  echo Hello, $1
+}
+  }},
+
+  {name: 'Clojure', description: %Q{
+(defn hello [name]
+  (println "Hello, " name "!"))
+  }}
+])

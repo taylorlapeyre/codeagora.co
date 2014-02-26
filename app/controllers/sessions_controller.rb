@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     if signed_in?
-      flash[:notice] = "You're already signed in as #{current_user.username}"
+      flash[:error] = "You're already signed in as #{current_user.username}"
       redirect_to root_url
     end
   end
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to root_url
     else
-      flash[:error] = 'Invalid username/password combination'
+      flash.now[:error] = 'Invalid username/password combination'
       render :new
     end
   end

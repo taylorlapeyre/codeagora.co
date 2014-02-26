@@ -1,0 +1,7 @@
+.row.clearfix
+  .container
+    %h2 #{@language.name} Snippets
+
+.row.clearfix
+  .container
+    / = render 'shared/snippet', collection: @language.snippets
