@@ -14,18 +14,25 @@ body {
   text-align: center;
   min-height: 250px;
   padding-top: 50px;
-  
+
   a {
     text-decoration: none;
     color: inherit;
   }
 
-  h1 {
+  h1.logo {
     margin: 0;
     display: inline-block;
     text-transform: uppercase;
     border-bottom: 5px solid #FFF;
   }
+}
+
+.logo {
+  margin: 0;
+  display: inline-block;
+  text-transform: uppercase;
+  border-bottom: 5px solid #FFF;
 }
 
 pre {
@@ -62,23 +69,26 @@ pre {
 
 .navbar {
   background-color: $green;
+  height: 30%;
   padding: 1em;
-  height: 100px;
   color: #FFF;
   overflow: hidden;
 
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+  .nav {
+    /* Medium screens (640px) */
+    @media (min-width: 40rem) { 
+      text-align: right;
+    }
+     
+    /* Large screens (1024px) */
+    @media (min-width: 64rem) { 
+      text-align: right;
+    }
+  }
 
   a {
     text-decoration: none;
     color: #FFF;
     padding-right: 1em;
-  }
-
-  &:hover {
-    height: 200px;
   }
 }
