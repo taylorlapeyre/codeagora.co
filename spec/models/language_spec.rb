@@ -19,7 +19,12 @@ describe Language do
     expect(@language).to_not be_valid
   end
 
-  it 'is identified by its name in requests' do
+  it 'should be identified by its name in requests' do
     expect(@language.to_param).to eq @language.name
+  end
+
+  it 'should know how to syntax color its description' do
+    Pygmentize.stub(:process) { 'correct' }
+    expect(@language.syntax_colored_description).to eq 'correct'
   end
 end
