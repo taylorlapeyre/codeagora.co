@@ -1,5 +1,5 @@
 /* Colors */
-$black: #333;
+$black: #333434;
 $blue: #497bad;
 $green: #1ABC9C;
 $red: #E74C3C;
@@ -19,16 +19,37 @@ form {
 
     input[type="text"] {
       -webkit-appearance: none;
-      padding: 0.3em;
       outline: none;
-      border: 1px solid lighten($black, 20%);
+      appearance: none;
+      border: none;
+      font: inherit;
+      -webkit-font-smoothing: antialiased;
+      padding: 0.3rem;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+      border-radius: 0.25em;
+      -webkit-transition-duration: 0.2s;
+      -moz-transition-duration: 0.2s;
+      -o-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+
+      &::-webkit-input-placeholder {
+        -webkit-text-fill-color: transparentize($black, .5);
+      }
 
       &:focus {
-        -webkit-transition-duration: 0.2s;
-        -moz-transition-duration: 0.2s;
-        -o-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        border: 1px solid $blue;
+        outline: none;
+        box-shadow: 0 0 0 1px transparentize($blue, .5);
+
+        // Media query browser detection to prevent weirdness in non-webkit browsers
+        @media (-webkit-animation) {
+         color: $blue;
+         -webkit-text-fill-color: $black;
+        }
+
+        // And make sure our placeholder doesn't get a weird color, either.
+        &::-webkit-input-placeholder {
+         -webkit-text-fill-color: transparentize($black, .5);
+        }
       }
     }
 
@@ -37,10 +58,11 @@ form {
     }
 
     input[type="submit"] {
-      background: $blue;
+      $darker-blue: darken($blue, 5%);
+      background: -webkit-gradient(linear, left top, left bottom, from($blue), to($darker-blue));
       color: #FFF;
       border: 1px solid darken($blue, 10%);
-      padding: 0.3em 0.5em;
+      padding: 0.3em 1em;
       border-radius: 3px;
     }
   }
