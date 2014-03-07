@@ -1,4 +1,4 @@
-class Snippets < ActiveRecord::Base
+class Snippet < ActiveRecord::Base
   validates :name, presence: true
   validates :public, presence: true
   validates :permalink, presence: true, uniqueness: true
