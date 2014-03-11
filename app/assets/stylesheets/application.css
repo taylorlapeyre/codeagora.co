@@ -11,5 +11,5 @@
  *= require_self
  *= require normalize
  *= require_tree .
- *= require snappy-light
+ *= require tomorrow
  */

@@ -1,0 +1,15 @@
+@import "variables";
+
+.alert {
+  padding: 1em;
+
+  &.notice {
+    background-color: $green;
+    color: #FFF;
+  }
+
+  &.error {
+    background-color: $red;
+    color: #FFF;
+  }
+}

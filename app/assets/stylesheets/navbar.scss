@@ -1,0 +1,27 @@
+@import "variables";
+
+.navbar {
+  background-color: $blue;
+  height: 30%;
+  padding: 1em;
+  color: #FFF;
+  overflow: hidden;
+
+  .nav {
+    /* Medium screens (640px) */
+    @media (min-width: 40rem) {
+      text-align: right;
+    }
+
+    /* Large screens (1024px) */
+    @media (min-width: 64rem) {
+      text-align: right;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #FFF;
+    padding-right: 1em;
+  }
+}
