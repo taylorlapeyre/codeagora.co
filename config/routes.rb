@@ -1,6 +1,10 @@
 Agora::Application.routes.draw do
   root 'languages#index'
-  
+
+  namespace :api, constraints: { format: 'json' } do
+    resources :languages, only: [:index, :show]
+  end
+
   resources :users,     only: [:create, :destroy]
   resources :sessions,  only: [:create, :destroy]
   resources :languages, only: [:index, :show]
