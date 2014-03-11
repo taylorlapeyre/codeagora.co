@@ -3,6 +3,7 @@ class CreateSnippets < ActiveRecord::Migration
     create_table :snippets do |t|
       t.string :name
       t.text :description
+      t.text :content
       t.boolean :public, default: true
       t.string :permalink
       t.belongs_to :user, index: true
