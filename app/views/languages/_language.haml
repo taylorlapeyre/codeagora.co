@@ -1,5 +1,5 @@
 .language-box
   %h3
     = link_to language.name, language
-    / Total Snippets: #{language.snippets.count}
+    %span{style: "float: right; color: #aaa"}= language.snippets.count
   = preserve raw language.pretty_description

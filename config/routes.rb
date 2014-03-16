@@ -3,6 +3,7 @@ Agora::Application.routes.draw do
 
   resources :users,     only: [:create, :destroy]
   resources :sessions,  only: [:create, :destroy]
+
   resources :languages, only: [:index, :show], shallow: true do
     resources :snippets
   end
