@@ -1,0 +1,17 @@
+@import "variables";
+
+.button {
+  $darker-blue: darken($blue, 5%);
+  background: -webkit-gradient(linear, left top, left bottom, from($blue), to($darker-blue));
+  color: #FFF;
+  border: 1px solid darken($blue, 10%);
+  padding: 0.3em 1em;
+  border-radius: 3px;
+  text-decoration: none;
+
+  &.green {
+    $darker-green: darken($green, 5%);
+    background: -webkit-gradient(linear, left top, left bottom, from($green), to($darker-green));
+    border: 1px solid darken($green, 5%);
+  }
+}
