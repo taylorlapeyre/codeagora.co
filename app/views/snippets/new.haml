@@ -1,0 +1,30 @@
+.row.clearfix
+  .container
+    %h2 Create an Account
+
+- if @snippet.errors.any?
+  .row.clearfix
+    .container
+      %p
+        %strong Check Yourself.
+      %ul
+        - @snippet.errors.full_messages.each do |message|
+          %li= message
+
+.row.clearfix
+  .container
+    = form_for @snippet do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name
+      .form-group
+        = f.label :language
+        = f.collection_select :language, Language.all, :id, :name
+      .form-group
+        = f.label :content
+        = f.text_area :content
+      .form-group
+        = f.label :public
+        = f.check_box :public
+      .form-group
+        = f.submit "Create Snippet"
