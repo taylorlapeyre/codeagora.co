@@ -3,7 +3,7 @@ Agora::Application.routes.draw do
 
   resources :users,     only: [:create, :destroy]
   resources :sessions,  only: [:create, :destroy]
-  resources :languages, only: [:index, :show] do
+  resources :languages, only: [:index, :show]
   resources :snippets
 
   get '/signup',  to: "users#new",        as: 'sign_up'
