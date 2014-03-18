@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-  before_filter :signed_in,    except: [:index, :show]
+  before_filter :signed_in,    except: [:index, :show, :new]
   before_filter :set_snippet,  only:   [:show, :edit, :update, :destroy]
   before_filter :correct_user, only:   [:edit, :update, :destroy]
 
