@@ -53,9 +53,8 @@ class SnippetsController < ApplicationController
     end
 
     def set_snippet
-      @language  = Language.find(params[:language_id])
-      @snippet   = @language.snippets.find_by_permakink(params[:id])
-      @snippet ||= @language.snippets.find_by_permalink_and_public(params[:id], false)
+      @snippet   = Snippet.find_by_permalink(params[:id])
+      @snippet ||= Snippet.find_by_permalink_and_public(params[:id], false)
     end
 
     def signed_in

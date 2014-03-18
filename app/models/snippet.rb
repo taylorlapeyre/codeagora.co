@@ -11,4 +11,8 @@ class Snippet < ActiveRecord::Base
   def assign_permalink
     self.permalink = SecureRandom.hex(7)
   end
+
+  def to_param
+    permalink
+  end
 end
