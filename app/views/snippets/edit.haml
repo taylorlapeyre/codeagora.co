@@ -1,0 +1,16 @@
+.row.clearfix
+  .container
+    %h2 Update #{@snippet.name}
+
+- if @snippet.errors.any?
+  .row.clearfix
+    .container
+      %p
+        %strong Check Yourself.
+      %ul
+        - @snippet.errors.full_messages.each do |message|
+          %li= message
+
+.row.clearfix
+  .container
+    = render 'form'
