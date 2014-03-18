@@ -1,7 +1,10 @@
 .row.clearfix
   .container
-    %h2 #{@snippet.name}
+    %h2
+      %span{style: 'color: #aaa'} #{@snippet.user.username} /
+      = @snippet.name
+    %h4= @snippet.language.name
 
 .row.clearfix
   .container
-    / = render 'shared/snippet', @snippet
+    = preserve raw @snippet.pretty_content
