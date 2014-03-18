@@ -4,4 +4,4 @@
 
 .row.clearfix
   .container
-    / = render 'shared/snippet', collection: @language.snippets
+    = render partial: 'snippets/snippet', collection: @language.snippets, as: 'snippet'
