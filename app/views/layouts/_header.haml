@@ -2,6 +2,7 @@
   .navbar.clearfix
     .column.half
       %p
+        = link_to "Snippets", snippets_path
         = link_to "Languages", languages_path
         = link_to "Sign Out", sign_out_path, via: :delete
     .column.half.nav
