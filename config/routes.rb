@@ -1,5 +1,5 @@
 Agora::Application.routes.draw do
-  root 'languages#index'
+  root 'snippets#index'
 
   resources :users,     only: [:create, :destroy]
   resources :sessions,  only: [:create, :destroy]
