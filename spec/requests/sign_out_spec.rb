@@ -9,7 +9,7 @@ describe "Sign out links" do
   end
 
   it "sign me out" do
-    visit '/sign-in'
+    visit '/signin'
     expect(page).to have_content('Sign In')
     within('form') do
       fill_in 'Username', with: 'testuser'

@@ -9,7 +9,7 @@ describe "Sign In Page" do
   end
 
   it "signs me in" do
-    visit '/sign-in'
+    visit '/signin'
     expect(page).to have_content('Sign In')
     within('form') do
       fill_in 'Username', with: 'testuser'

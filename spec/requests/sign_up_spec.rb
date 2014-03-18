@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Sign Up Page" do
   it "signs me up" do
-    visit '/sign-up'
+    visit '/signup'
     expect(page).to have_content('Sign Up')
     within('form#new_user') do
       fill_in 'Username', with: 'myusername'
