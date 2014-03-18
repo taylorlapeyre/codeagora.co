@@ -4,4 +4,11 @@ class Snippet < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :language
+
+  before_validation :assign_permalink
+
+
+  def assign_permalink
+    self.permalink = SecureRandom.hex(7)
+  end
 end

@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 20140226204247) do
   create_table "snippets", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.boolean  "public"
+    t.text     "content"
+    t.boolean  "public",      default: true
     t.string   "permalink"
     t.integer  "user_id"
     t.integer  "language_id"

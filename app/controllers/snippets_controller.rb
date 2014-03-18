@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-  before_filter :signed_in,    except: [:index, :show, :new, :create]
+  before_filter :signed_in,    except: [:index, :show]
   before_filter :set_snippet,  only:   [:show, :edit, :update, :destroy]
   before_filter :correct_user, only:   [:edit, :update, :destroy]
 
@@ -59,9 +59,9 @@ class SnippetsController < ApplicationController
     end
 
     def signed_in
-      unless signed_in
+      unless signed_in?
         flash[:error] = "You must sign in to access that page"
-        redirect_to :sign_up_path
+        redirect_to :sign_up
       end
     end
 
