@@ -4,11 +4,7 @@ class SnippetsController < ApplicationController
   before_filter :correct_user, only:   [:edit, :update, :destroy]
 
   def index
-    if params[:language_id]
-      @snippets = Language.find(params[:language_id]).snippets
-    else
-      @snippets = Snippet.all
-    end
+    @snippets = Snippet.all
   end
 
   def show
