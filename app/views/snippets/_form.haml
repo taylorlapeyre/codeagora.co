@@ -12,4 +12,4 @@
     = f.label :public
     = f.check_box :public
   .form-group
-    = f.submit "Create Snippet"
+    = f.submit @snippet.new_record? ? "Create Snippet" : "Update Snippet"
