@@ -29,4 +29,16 @@ describe Snippet do
     @snippet.save
     expect(@snippet.to_param).to eq @snippet.permalink
   end
+
+  it 'should generate a name for itself if one is not provided' do
+    @snippet.name = nil
+    expect(@snippet.save).to be_true
+    expect(@snippet.name).to_not be_nil
+  end
+
+  it 'should know how to syntax color its content' do
+    Pygmentize.stub(:process) { 'correct' }
+    expect(Pygmentize).to receive(:process).with(@snippet.content, @snippet.language.to_pygments)
+    expect(@snippet.pretty_content).to eq 'correct'
+  end
 end
