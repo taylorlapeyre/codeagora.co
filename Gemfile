@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # basic
 gem 'rails', '4.0.3'
-gem 'sqlite3'
+gem 'pg'
 gem 'jbuilder'
 
 # misc
@@ -18,6 +18,9 @@ gem 'haml'
 
 # social
 gem 'omniauth-github'
+
+# heroku
+gem 'rails_12factor', group: :production
 
 group :development do
   gem 'better_errors'

@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
         password: new_password,
         password_confirmation: new_password
       }
-      create! user
+      user = create! user
     end
+    user
   end
 end

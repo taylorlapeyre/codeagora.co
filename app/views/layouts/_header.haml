@@ -1,5 +1,5 @@
 - if signed_in?
-  .navbar.clearfix        
+  .navbar.clearfix
     .column.half
       %p
         = link_to "Languages", languages_path
@@ -13,9 +13,4 @@
     .container
       %h1.logo= link_to "Agora", root_url
       %p Sharing code has never been more fun
-      %p
-        = link_to "Sign In", sign_in_path
-        |
-        = link_to "Sign Up", sign_up_path
-        |
-        = link_to "Sign In with GitHub", "/auth/github"
+      %p= link_to "Sign In with GitHub", "/auth/github", class: 'github-link'
