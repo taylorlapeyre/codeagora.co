@@ -8,19 +8,17 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase }
 
-	def self.find_by_omniauth(auth)
-		user = User.find_by_email(auth["info"]["email"])
-		user ? user : User.create_with_omniauth(auth)
-	end
+  def self.find_by_omniauth(auth)
+    user = User.find_by_email(auth["info"]["email"])
+    user ? user : User.create_with_omniauth(auth)
+  end
 
-	def self.create_with_omniauth(auth)
-		require 'securerandom'
-		create! do |user|
-			user.username = auth["info"]["email"]
-			user.email = auth["info"]["email"]
-			user.password = SecureRandom.hex(16)
-			user.password_confirmation = user.password
-		end
-	end
-
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.username = auth["info"]["email"]
+      user.email = auth["info"]["email"]
+      user.password = SecureRandom.hex(16)
+      user.password_confirmation = user.password
+    end
+  end
 end
