@@ -18,6 +18,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def github_login
+    auth = request.env["omniauth.auth"]
+    user = User.find_by_omniauth(auth)
+    sign_in user
+    redirect_to root_url
+  end
+
   def destroy
     sign_out
     redirect_to root_url

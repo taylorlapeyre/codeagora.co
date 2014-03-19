@@ -16,6 +16,9 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'haml'
 
+# social
+gem 'omniauth-github'
+
 group :development do
   gem 'better_errors'
 end
