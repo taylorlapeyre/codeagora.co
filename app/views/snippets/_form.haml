@@ -7,7 +7,7 @@
     = f.collection_select :language_id, Language.all, :id, :name
   .form-group
     = f.label :content
-    = f.text_area :content
+    = f.text_area :content, class: 'code'
   .form-group
     = f.label :public
     = f.check_box :public

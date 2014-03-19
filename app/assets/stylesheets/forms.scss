@@ -27,6 +27,7 @@ form {
       -moz-transition-duration: 0.2s;
       -o-transition-duration: 0.2s;
       transition-duration: 0.2s;
+      width: 50%;
 
       &::-webkit-input-placeholder {
         -webkit-text-fill-color: transparentize($black, .5);
@@ -51,6 +52,16 @@ form {
 
     input[type="email"], input[type="password"] {
       @extend input[type="text"];
+    }
+
+    textarea {
+      @extend input[type="text"];
+      height: 300px;
+
+      &.code {
+        font-size: 0.7em;
+        font-family: 'Source Code Pro', monospace;
+      }
     }
 
     input[type="submit"] {

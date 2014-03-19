@@ -56,7 +56,7 @@ class SnippetsController < ApplicationController
     def signed_in
       unless signed_in?
         flash[:error] = "You must sign in to access that page"
-        redirect_to :sign_up
+        redirect_to :root
       end
     end
 
