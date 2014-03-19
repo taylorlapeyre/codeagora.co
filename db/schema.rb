@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140226204247) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "languages", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 20140226204247) do
     t.datetime "updated_at"
   end
 
-  add_index "snippets", ["language_id"], name: "index_snippets_on_language_id"
-  add_index "snippets", ["user_id"], name: "index_snippets_on_user_id"
+  add_index "snippets", ["language_id"], name: "index_snippets_on_language_id", using: :btree
+  add_index "snippets", ["user_id"], name: "index_snippets_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -43,6 +46,6 @@ ActiveRecord::Schema.define(version: 20140226204247) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username"
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 end
