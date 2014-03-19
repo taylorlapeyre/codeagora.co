@@ -14,7 +14,7 @@ form {
     }
 
     select, .select2-container {
-      width: 50%;
+      width: 100%;
     }
 
     .select2-choice {
@@ -35,7 +35,7 @@ form {
       -moz-transition-duration: 0.2s;
       -o-transition-duration: 0.2s;
       transition-duration: 0.2s;
-      width: 50%;
+      width: 100%;
 
       &::-webkit-input-placeholder {
         -webkit-text-fill-color: transparentize($black, .5);
