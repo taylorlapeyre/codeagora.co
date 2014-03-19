@@ -64,11 +64,15 @@ form {
 
     textarea {
       @extend input[type="text"];
-      height: 300px;
 
       &.code {
+        height: 300px;
         font-size: 0.7em;
         font-family: 'Source Code Pro', monospace;
+      }
+
+      &.text {
+        height: 100px;
       }
     }
 
