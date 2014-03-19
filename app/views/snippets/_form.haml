@@ -3,11 +3,11 @@
     = f.label :name
     = f.text_field :name, placeholder: 'Optional'
   .form-group
-    = f.label :language
-    = f.collection_select :language_id, Language.all, :id, :name
-  .form-group
     = f.label :description
     = f.text_area :description, class: 'text', placeholder: 'Optional'
+  .form-group
+    = f.label :language
+    = f.collection_select :language_id, Language.all, :id, :name
   .form-group
     = f.label :content
     = f.text_area :content, class: 'code'
