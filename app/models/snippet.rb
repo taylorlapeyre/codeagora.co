@@ -1,7 +1,7 @@
 class Snippet < ActiveRecord::Base
     include ApplicationHelper
 
-  validates :name, :content, :public, presence: true
+  validates :name, :content, presence: true
   validates :permalink, presence: true, uniqueness: true
   validates_presence_of :language
 
@@ -10,6 +10,8 @@ class Snippet < ActiveRecord::Base
 
   before_validation :assign_permalink
   before_validation :assign_name, if: Proc.new { |s| s.name.blank? }
+
+  default_scope -> { where public: true }
 
 
   def to_param

@@ -12,7 +12,5 @@
     = f.label :content
     = f.text_area :content, class: 'code'
   .form-group
-    = f.label :public
-    = f.check_box :public
-  .form-group
-    = f.submit @snippet.new_record? ? "Create Snippet" : "Update Snippet"
+    = f.button "Make it Public", type: 'submit', name: 'snippet[public]', value: 1, class: 'blue button'
+    = f.button "Make it Private", type: 'submit', name: 'snippet[public]', value: 0, class: 'green button'
