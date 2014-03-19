@@ -7,11 +7,11 @@
         = link_to "Sign Out", sign_out_path, via: :delete
     .column.half.nav
       %p
-        You're signed in as
-        %strong= current_user.username
+        = link_to "Create a Snippet", new_snippet_path, class: 'clear-button'
+        = gravatar_for current_user
 - else
   .hero.clearfix
     .container
       %h1.logo= link_to "Agora", root_url
       %p Sharing code has never been more fun
-      %p= link_to "Sign In with GitHub", "/auth/github", class: 'github-link'
+      %p= link_to "Sign In with GitHub", "/auth/github", class: 'clear-button github-link'

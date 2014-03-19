@@ -22,6 +22,14 @@
   a {
     text-decoration: none;
     color: #FFF;
-    padding-right: 1em;
+    margin-right: 1em;
   }
+}
+
+.gravatar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  max-height: 2.3em !important;
+  z-index: -1;
 }
