@@ -4,7 +4,8 @@ class Language < ActiveRecord::Base
 
   def to_pygments
     {
-      'Bash' => 'sh'
+      'Bash' => 'sh',
+      'C++' => 'cpp'
     }[name] || name.downcase
   end
 
