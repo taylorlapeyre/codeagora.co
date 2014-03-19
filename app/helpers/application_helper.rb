@@ -14,4 +14,9 @@ module ApplicationHelper
   def current_user
     session[:current_user_id] && User.find(session[:current_user_id])
   end
+
+  def unique_name_for *args
+    require 'digest/sha1'
+    Digest::SHA1.hexdigest(args.join('-'))[0..10]
+  end
 end

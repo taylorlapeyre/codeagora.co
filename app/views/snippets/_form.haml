@@ -1,7 +1,7 @@
 = form_for @snippet do |f|
   .form-group
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, placeholder: 'Optional'
   .form-group
     = f.label :language
     = f.collection_select :language_id, Language.all, :id, :name
