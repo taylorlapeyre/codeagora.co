@@ -8,17 +8,17 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase }
 
-  def self.find_by_omniauth(auth)
-    user = User.find_by_email(auth["info"]["email"])
-    user ? user : User.create_with_omniauth(auth)
-  end
-
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.username = auth["info"]["email"]
-      user.email = auth["info"]["email"]
-      user.password = SecureRandom.hex(16)
-      user.password_confirmation = user.password
+  def self.find_or_create_by_omniauth(auth)
+    user = User.find_by_email(auth['info']['email'])
+    unless user
+      new_password = SecureRandom.hex(16)
+      user = {
+        username: auth["info"]["email"],
+        email: auth["info"]["email"],
+        password: new_password,
+        password_confirmation: new_password
+      }
+      create! user
     end
   end
 end

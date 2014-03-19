@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
 
   def github_login
     auth = request.env["omniauth.auth"]
-    user = User.find_by_omniauth(auth)
+    user = User.find_or_create_by_omniauth(auth)
+    flash[:notice] = 'Welcome back, you sexy thang you.'
     sign_in user
     redirect_to root_url
   end
