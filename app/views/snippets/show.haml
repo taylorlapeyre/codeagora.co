@@ -1,8 +1,14 @@
+
+
 .row.clearfix
   .container
     %h2
       %span{style: 'color: #aaa'} #{@snippet.user.username} /
       = @snippet.name
+    - if signed_in? && @snippet.user == current_user
+      %p
+        = link_to 'Delete', @snippet, method: 'delete', class: 'red button'
+        = link_to 'Edit', edit_snippet_path(@snippet), class: 'green button'
     %h4= @snippet.language.name
     %p= @snippet.description
 

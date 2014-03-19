@@ -14,6 +14,18 @@
     background: -webkit-gradient(linear, left top, left bottom, from($green), to($darker-green));
     border: 1px solid darken($green, 5%);
   }
+
+  &.red {
+    $darker-red: darken($red, 5%);
+    background: -webkit-gradient(linear, left top, left bottom, from($red), to($darker-red));
+    border: 1px solid darken($red, 5%);
+  }
+
+  &.black {
+    $darker-black: darken($black, 5%);
+    background: -webkit-gradient(linear, left top, left bottom, from($black), to($darker-black));
+    border: 1px solid darken($black, 5%);
+  }
 }
 
 .clear-button {

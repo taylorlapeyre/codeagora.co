@@ -39,7 +39,7 @@ class SnippetsController < ApplicationController
   def destroy
     @snippet.destroy
     flash[:notice] = "Snippet deleted."
-    redirect_to :index
+    redirect_to :snippets
   end
 
   private
