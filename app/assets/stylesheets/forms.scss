@@ -13,6 +13,14 @@ form {
       font-weight: 600;
     }
 
+    select, .select2-container {
+      width: 50%;
+    }
+
+    .select2-choice {
+      height: 1.5em;
+    }
+
     input[type="text"] {
       -webkit-appearance: none;
       outline: none;

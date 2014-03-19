@@ -8,6 +8,7 @@ gem 'jbuilder'
 # misc
 gem 'bcrypt-ruby'
 gem 'pygmentize'
+gem 'select2-rails'
 
 # assets
 gem 'sass-rails'
