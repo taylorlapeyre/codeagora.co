@@ -13,6 +13,12 @@ def hello(name)
 end
   }},
 
+  {name: 'C++', description: %Q{
+void hello(string name) {
+  cout << "Hello, " << name << "!";
+}
+  }},
+
   {name: 'Python', description: %Q{
 def hello(name):
   print("Hello, {}!".format(name))
