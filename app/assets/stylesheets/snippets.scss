@@ -21,10 +21,16 @@
 }
 
 .code-table {
-  td:first-child {
+  td:first-child a {
     text-align: right;
     padding-right: 1em;
     color: #ccc;
     word-wrap: break-word;
+    text-decoration: none;
+
+    &:active {
+      outline: none;
+      border: none;
+    }
   }
 }

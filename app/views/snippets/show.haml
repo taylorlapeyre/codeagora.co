@@ -16,7 +16,7 @@
       %tr
         %td.code
           - 1.upto(@snippet.content.split("\n").length) do |n|
-            = n
+            %a{name: n, href: "##{n}"}= n
             %br
         %td
           = preserve raw @snippet.pretty_content
