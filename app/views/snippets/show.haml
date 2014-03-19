@@ -1,5 +1,3 @@
-
-
 .row.clearfix
   .container
     %h2
@@ -17,8 +15,8 @@
     %table.code-table
       %tr
         %td.code
-          - 1.upto @snippet.content.split("\n").length do |n|
-            = preserve raw "#{n}. "
+          - 1.upto(@snippet.content.split("\n").length) do |n|
+            = n
             %br
         %td
           = preserve raw @snippet.pretty_content
