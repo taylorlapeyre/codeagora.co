@@ -1,0 +1,7 @@
+.row.clearfix
+  .container
+    %h2 #{@user.username}'s Snippets
+
+.row.clearfix
+  .container
+    = render partial: 'snippets/snippet', collection: @user.snippets, as: 'snippet'
