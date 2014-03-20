@@ -1,0 +1,22 @@
+.comment-box {
+  margin-top: 30px;
+
+  img {
+    width: 64px;
+    float: left;
+    margin-right: 10px;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 5px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

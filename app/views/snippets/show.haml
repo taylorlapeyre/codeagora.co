@@ -21,3 +21,18 @@
             %br
         %td
           = preserve raw @snippet.pretty_content
+
+.row.clearfix
+  .container
+    %h3 Comments
+    = render @snippet.comments
+
+- if signed_in?
+  .row.clearfix
+    .container
+      %h3 Make a Comment
+      = render 'comments/form', snippet_id: @snippet.id
+- else
+  .row.clearfix
+    .container
+      %h3 Sign in to leave a comment.

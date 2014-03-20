@@ -7,6 +7,7 @@ class Snippet < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :language
+  has_many   :comments
 
   before_validation :assign_permalink
   before_validation :assign_name, if: Proc.new { |s| s.name.blank? }

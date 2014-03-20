@@ -1,0 +1,4 @@
+.comment-box
+  = gravatar_for comment.user
+  %h4= comment.user.username
+  = raw comment.pretty_content

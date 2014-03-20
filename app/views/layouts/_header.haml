@@ -8,7 +8,7 @@
     .column.half.nav
       %p
         = link_to "Create a Snippet", new_snippet_path, class: 'clear-button'
-        = gravatar_for current_user
+        .floating-gravatar= gravatar_for current_user
 - else
   .hero.clearfix
     .container

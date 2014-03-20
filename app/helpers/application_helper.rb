@@ -25,4 +25,9 @@ module ApplicationHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
     image_tag(gravatar_url, alt: user.username, class: "gravatar")
   end
+
+  def markdown string
+    require 'rdiscount'
+    RDiscount.new(string).to_html
+  end
 end
