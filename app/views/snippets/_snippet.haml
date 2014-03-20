@@ -1,8 +1,9 @@
 .snippet-box
   %h3
-    %span{style: 'color: #aaa'} #{snippet.user.username} /
+    %span{style: 'color: #aaa'}
+    = link_to snippet.user.username, user_path(snippet.user.username)
+    \/
     = link_to snippet.name, snippet
   %p= snippet.description
   = preserve raw snippet.pretty_content
-
 %hr
