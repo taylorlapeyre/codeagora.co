@@ -1,4 +1,4 @@
 .comment-box
   = gravatar_for comment.user
-  %h4= comment.user.username
+  %h4= link_to comment.user.username, comment.user
   = raw comment.pretty_content
