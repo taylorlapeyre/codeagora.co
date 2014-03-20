@@ -51,6 +51,7 @@ class SnippetsController < ApplicationController
     def set_snippet
       @snippet   = Snippet.find_by_permalink(params[:id])
       @snippet ||= Snippet.find_by_permalink_and_public(params[:id], false)
+      not_found unless @snippet
     end
 
     def signed_in
