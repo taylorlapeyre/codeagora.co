@@ -1,7 +1,8 @@
 .row.clearfix
   .container
     %h2
-      %span{style: 'color: #aaa'} #{@snippet.user.username} /
+      %span.username= link_to @snippet.user.username, @snippet.user
+      \/
       = @snippet.name
     - if signed_in? && @snippet.user == current_user
       %p
