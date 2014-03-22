@@ -63,4 +63,33 @@ public static void hello(String name) {
   }
 ?>
   }.strip},
+
+  {name: 'Assembly', description: %Q{
+.text
+.global hello
+
+hello:
+  movb %ecx, 8(%esp)
+  movb $72, (%eax, 1)
+  movb $101, (%eax, 2)
+  movb $108, (%eax, 3)
+  movb $108, (%eax, 4)
+  movb $111, (%eax, 5)
+  movb $44, (%eax, 6)
+  movb $32, (%eax, 7)
+
+  xor %ebx, %ebx
+  LOOP:
+    movb (%ecx, %ebx), (%eax)
+    inc %ebx
+    cmp $ebx, $0
+    je DONE
+  jmp LOOP
+  DONE:
+    ret
+  }.strip},
+
+  {name: 'Text', description: %Q{
+hello, name
+  }.strip},
 ])
