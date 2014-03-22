@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
   before_filter :set_snippet
+  before_filter :signed_in
 
   def create
     if params[:type] == 'upvote'
@@ -14,6 +15,13 @@ class VotesController < ApplicationController
   end
 
   private
+
+    def signed_in
+      unless signed_in?
+        flash[:error] = "You can't vote on things unless you're signed in."
+        render :js => "window.location = '/'"
+      end
+    end
 
     def set_snippet
       @snippet = Snippet.find params[:snippet_id]
