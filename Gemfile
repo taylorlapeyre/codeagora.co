@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'haml'
+gem "font-awesome-rails"
 
 # social
 gem 'omniauth-github'

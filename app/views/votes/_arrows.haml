@@ -1,0 +1,4 @@
+.voting
+  = fa_icon 'arrow-up', class: signed_in? && current_user.upvoted?(snippet) ? 'active upvote' : 'upvote', data: { id: snippet.id }
+  %span.score{data: { id: snippet.id }}= snippet.score
+  = fa_icon 'arrow-down', class: signed_in? && current_user.downvoted?(snippet) ? 'active downvote' : 'downvote', data: { id: snippet.id }

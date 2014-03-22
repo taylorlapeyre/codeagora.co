@@ -1,7 +1,8 @@
 .snippet-box
+  = render 'votes/arrows', snippet: snippet
   %h3
     %span.username= link_to snippet.user.username, snippet.user
-    \/
+    = "/"
     = link_to snippet.name, snippet
   %p= snippet.description
   = preserve raw snippet.pretty_content

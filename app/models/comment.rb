@@ -5,6 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :user, :snippet
+  validates :content, presence: true
 
   def pretty_content
     markdown content

@@ -2,11 +2,13 @@
   .container
     - unless @snippet.public?
       %p.private-notice Private
+    = render 'votes/arrows', snippet: @snippet
 
     %h2
       %span.username= link_to @snippet.user.username, @snippet.user
-      \/
+      = "/"
       = @snippet.name
+
     - if signed_in? && @snippet.user == current_user
       %p
         = link_to 'Delete', @snippet, method: 'delete', class: 'red button'

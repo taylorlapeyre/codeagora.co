@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :snippets
   has_many :comments
+  has_many :votes
 
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true, format: { with: VALID_EMAIL_REGEX }
@@ -26,6 +27,28 @@ class User < ActiveRecord::Base
     end
 
     user
+  end
+
+  def upvote! snippet
+    vote = votes.find_or_create_by_snippet_id(snippet.id)
+    direction = (vote.direction == 1) ? 0 : 1
+    vote.update direction: direction
+  end
+
+  def downvote! snippet
+    vote = votes.find_or_create_by_snippet_id(snippet.id)
+    direction = (vote.direction == -1) ? 0 : -1
+    vote.update direction: direction
+  end
+
+  def upvoted? snippet
+    vote = votes.find_by_snippet_id(snippet.id)
+    vote.present? && vote.direction == 1
+  end
+
+  def downvoted? snippet
+    vote = votes.find_by_snippet_id(snippet.id)
+    vote.present? && vote.direction == -1
   end
 
   def to_param

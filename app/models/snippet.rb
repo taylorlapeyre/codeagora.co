@@ -8,6 +8,7 @@ class Snippet < ActiveRecord::Base
   belongs_to :user
   belongs_to :language
   has_many   :comments
+  has_many   :votes
 
   before_validation :assign_permalink
   before_validation :assign_name, if: Proc.new { |s| s.name.blank? }
@@ -22,6 +23,10 @@ class Snippet < ActiveRecord::Base
   def pretty_content
     require 'pygmentize'
     Pygmentize.process(content, language.to_pygments)
+  end
+
+  def score
+    votes.to_a.sum(&:direction)
   end
 
   private
