@@ -57,7 +57,7 @@ class SnippetsController < ApplicationController
     def signed_in
       unless signed_in?
         flash[:error] = "You must sign in to access that page"
-        render :js => "window.location = '/jobs/index'"
+        redirect_to :root
       end
     end
 
