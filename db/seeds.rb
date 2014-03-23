@@ -92,4 +92,9 @@ hello:
   {name: 'Text', description: %Q{
 hello, name
   }.strip},
+  
+  {name: 'Coffeescript', description: %Q{
+hello = (name) ->
+  console.log "Hello, \#{name}"
+  }.strip}
 ])
