@@ -1,6 +1,23 @@
-## [Application Spec][spec]
 
-Read this first.
+## Features
+
+**[Initial Application Spec][spec]**
+
+- ~~Initial design work~~
+- ~~Custom user sign up~~
+- ~~Signing in~~
+- ~~Sign in with GitHub~~
+- ~~User "profile" pages~~
+- ~~Basic Language functionality~~
+- ~~Basic Snippet functionality~~
+- ~~Private snippets~~
+- ~~Commenting on snippets~~
+- Up/Downvoting on Snippets
+- "Smart" default front page
+- sorting (new, best, trending, etc)
+- Notifications (just comments)
+- Snippet tagging
+- Search (Probably not full text, just tags)
 
 ## The Things
 
