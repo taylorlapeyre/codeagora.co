@@ -1,18 +1,22 @@
+
+- unless @snippet.public?
+  .row.clearfix
+    .container
+      .private-notice Private Snippet
+
 .row.clearfix
   .container
-    - unless @snippet.public?
-      %p.private-notice Private
-    = render 'votes/arrows', snippet: @snippet
+
+    - if signed_in? && @snippet.user == current_user
+      %p{style: "float: right"}
+        = link_to 'Delete', @snippet, method: 'delete', class: 'red button'
+        = link_to 'Edit', edit_snippet_path(@snippet), class: 'green button'
 
     %h2
       %span.username= link_to @snippet.user.username, @snippet.user
       = "/"
       = @snippet.name
 
-    - if signed_in? && @snippet.user == current_user
-      %p
-        = link_to 'Delete', @snippet, method: 'delete', class: 'red button'
-        = link_to 'Edit', edit_snippet_path(@snippet), class: 'green button'
     %p
       %strong= @snippet.language.name
 
