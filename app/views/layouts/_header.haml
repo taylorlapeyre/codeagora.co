@@ -14,4 +14,4 @@
     .container
       %h1.logo= link_to "Agora", root_url
       %p Sharing code has never been easier.
-      %p= link_to "Sign In with GitHub", "/auth/github", class: 'clear-button github-link'
+      %p= link_to raw("#{fa_icon :github} Sign In with GitHub"), "/auth/github", class: 'clear-button github-link'
