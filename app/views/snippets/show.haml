@@ -1,5 +1,8 @@
 .row.clearfix
   .container
+    - unless @snippet.public?
+      %p.private-notice Private
+
     %h2
       %span.username= link_to @snippet.user.username, @snippet.user
       \/
@@ -8,8 +11,10 @@
       %p
         = link_to 'Delete', @snippet, method: 'delete', class: 'red button'
         = link_to 'Edit', edit_snippet_path(@snippet), class: 'green button'
-    %h4= @snippet.language.name
-    %p= @snippet.description
+    %p
+      %strong= @snippet.language.name
+
+      = "― #{@snippet.description}" unless @snippet.description.blank?
 
 .row.clearfix
   .container
