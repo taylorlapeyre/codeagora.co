@@ -62,7 +62,7 @@ class SnippetsController < ApplicationController
     end
 
     def correct_user
-      snippet = current_user.snippets.find_by_permalink(params[:id])
+      snippet = current_user.snippets.unscoped.find_by_permalink(params[:id])
       redirect_to :root if snippet.nil?
     end
 end

@@ -4,4 +4,7 @@
 
 .row.clearfix
   .container
-    = render @user.snippets
+    - if signed_in? && current_user == @user
+      = render @user.snippets.unscoped
+    - else
+      = render @user.snippets
