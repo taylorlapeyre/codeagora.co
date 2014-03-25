@@ -12,5 +12,5 @@
  *= require normalize
  *= require select2
  *= require_tree .
- *= require tomorrow
+ *= require github
  */
