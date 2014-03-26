@@ -23,11 +23,11 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by_omniauth(auth)
     flash[:notice] = 'Welcome back.'
     sign_in user
-    redirect_to root_url
+    redirect_to :back
   end
 
   def destroy
     sign_out
-    redirect_to root_url
+    redirect_to :root
   end
 end
