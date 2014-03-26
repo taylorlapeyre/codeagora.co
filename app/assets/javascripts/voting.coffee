@@ -10,8 +10,6 @@ $ ->
         $(this).parents('.voting').find('.fa').removeClass('active')
         if data.status == 'upvoted'
           $(this).addClass('active')
-        else
-          $(this).removeClass('active')
 
   $('.downvote').click ->
     id = $(this).data('id')
@@ -24,5 +22,3 @@ $ ->
         $(this).parents('.voting').find('.fa').removeClass('active')
         if data.status == 'downvoted'
           $(this).addClass('active')
-        else
-          $(this).removeClass('active')

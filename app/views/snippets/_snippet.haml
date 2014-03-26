@@ -1,9 +1,15 @@
 .snippet-box
-  = render 'votes/arrows', snippet: snippet
+  - if snippet.public?
+    .voting
+      = fa_icon 'arrow-up', class: signed_in? && current_user.upvoted?(snippet) ? 'active upvote' : 'upvote', data: { id: snippet.id }
+      .score{data: { id: snippet.id }}= snippet.score
   %h3
     %span.username= link_to snippet.user.username, snippet.user
     = "/"
     = link_to snippet.name, snippet
+    - unless snippet.public?
+      .info
+        %span{style: 'float: left'} PRIVATE
   %p= snippet.description
   = preserve raw snippet.pretty_content
 %hr

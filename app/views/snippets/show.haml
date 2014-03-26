@@ -1,49 +1,54 @@
+.snippet-page
 
-- unless @snippet.public?
+  - unless @snippet.public?
+    .row.clearfix
+      .container
+        .private-notice Private Snippet
+
   .row.clearfix
     .container
-      .private-notice Private Snippet
 
-.row.clearfix
-  .container
+      - if signed_in? && @snippet.user == current_user
+        %p{style: "float: right"}
+          = link_to 'Delete', @snippet, method: 'delete', class: 'red button'
+          = link_to 'Edit', edit_snippet_path(@snippet), class: 'green button'
 
-    - if signed_in? && @snippet.user == current_user
-      %p{style: "float: right"}
-        = link_to 'Delete', @snippet, method: 'delete', class: 'red button'
-        = link_to 'Edit', edit_snippet_path(@snippet), class: 'green button'
+      - if @snippet.public?
+        .voting
+          = fa_icon 'arrow-up', class: signed_in? && current_user.upvoted?(@snippet) ? 'active upvote' : 'upvote', data: { id: @snippet.id }
+          .score{data: { id: @snippet.id }}= @snippet.score
+      %h2
+        %span.username= link_to @snippet.user.username, @snippet.user
+        = "/"
+        = @snippet.name
 
-    %h2
-      %span.username= link_to @snippet.user.username, @snippet.user
-      = "/"
-      = @snippet.name
+      %p
+        %strong= @snippet.language.name
 
-    %p
-      %strong= @snippet.language.name
+        = "― #{@snippet.description}" unless @snippet.description.blank?
 
-      = "― #{@snippet.description}" unless @snippet.description.blank?
-
-.row.clearfix
-  .container
-    %table.code-table
-      %tr
-        %td.code
-          - 1.upto(@snippet.content.split("\n").length) do |n|
-            %a{name: n, href: "##{n}"}= n
-            %br
-        %td
-          = preserve raw @snippet.pretty_content
-
-.row.clearfix
-  .container
-    %h3 Comments
-    = render @snippet.comments
-
-- if signed_in?
   .row.clearfix
     .container
-      %h3 Make a Comment
-      = render 'comments/form', snippet_id: @snippet.id
-- else
+      %table.code-table
+        %tr
+          %td.code
+            - 1.upto(@snippet.content.split("\n").length) do |n|
+              %a{name: n, href: "##{n}"}= n
+              %br
+          %td
+            = preserve raw @snippet.pretty_content
+
+  - if @snippet.comments.any?
+    .row.clearfix
+      .container
+        %h3 Comments
+        = render @snippet.comments
+
+
   .row.clearfix
     .container
-      %h3 Sign in to leave a comment.
+      - if signed_in?
+        %h3 Make a Comment
+        = render 'comments/form', snippet_id: @snippet.id
+      - else
+        %h3 Sign in to leave a comment.

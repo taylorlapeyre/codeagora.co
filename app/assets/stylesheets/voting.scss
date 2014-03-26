@@ -1,13 +1,8 @@
 @import "variables";
 
 .voting {
-  float: right;
-  text-align: center;
-  color: lighten($black, 40%);
-
   .fa {
     cursor: pointer;
-    display: block;
   }
 
   .upvote.active {

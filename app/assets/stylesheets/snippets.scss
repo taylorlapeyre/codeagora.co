@@ -6,9 +6,34 @@
   overflow: hidden;
   -webkit-mask-image: -webkit-gradient(linear, left 80%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 
+  h3 {
+    margin-bottom: 0;
+  }
+
   a {
     text-decoration: none;
     color: $blue;
+  }
+
+  .voting {
+    text-align: center;
+    float: left;
+    display: inline-block;
+    position: relative;
+    top: -3px;
+    margin-right: .5em;
+    color: lighten($black, 40%);
+
+    .upvote {
+      position: relative;
+      top: 5px;
+    }
+  }
+
+  .info {
+    margin: 0;
+    font-size: 0.6em;
+    color: lighten($black, 20%);
   }
 
   & + hr {
@@ -48,4 +73,22 @@
   padding: 1em 0;
   text-transform: uppercase;
   color: lighten($black, 20%);
+}
+
+.snippet-page {
+  .voting {
+    text-align: center;
+    float: left;
+    display: inline-block;
+    position: relative;
+    font-size: 1.3em;
+    top: -1.3em;
+    margin-right: .5em;
+    color: lighten($black, 40%);
+
+    .upvote {
+      position: relative;
+      top: 10px;
+    }
+  }
 }
