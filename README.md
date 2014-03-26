@@ -1,4 +1,3 @@
-
 ## Features
 
 **[Initial Application Spec][spec]**
@@ -18,6 +17,8 @@
 - Notifications (just comments)
 - Snippet tagging
 - Search (Probably not full text, just tags)
+- Public API
+- Atom integration
 
 ## The Things
 
