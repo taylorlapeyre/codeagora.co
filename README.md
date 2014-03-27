@@ -11,9 +11,7 @@
 - ~~Basic Snippet functionality~~
 - ~~Private snippets~~
 - ~~Commenting on snippets~~
-- Up/Downvoting on Snippets
 - "Smart" default front page
-- sorting (new, best, trending, etc)
 - Notifications (just comments)
 - Snippet tagging
 - Search (Probably not full text, just tags)
