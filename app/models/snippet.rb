@@ -13,6 +13,7 @@ class Snippet < ActiveRecord::Base
   before_validation :assign_name, if: Proc.new { |s| s.name.blank? }
 
   default_scope -> { where public: true }
+  default_scope -> { order 'created_at DESC' }
 
 
   def to_param
