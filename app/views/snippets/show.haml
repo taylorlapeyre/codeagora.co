@@ -1,43 +1,50 @@
-.row.clearfix
-  .container
-    - unless @snippet.public?
-      %p.private-notice Private
+.snippet-page
 
-    %h2
-      %span.username= link_to @snippet.user.username, @snippet.user
-      \/
-      = @snippet.name
-    - if signed_in? && @snippet.user == current_user
+  .row.clearfix
+    .container
+      %h2
+        %span.username= link_to @snippet.user.username, @snippet.user
+        = '/'
+        = @snippet.name
+
+      %p.details
+        #{time_ago_in_words(@snippet.created_at)} ago
+        - unless @snippet.public?
+          ·
+          %span.private Private
+
+      - if signed_in? && @snippet.user == current_user
+        %p
+          = link_to 'Delete', @snippet, method: 'delete', class: 'red button'
+          = link_to 'Edit', edit_snippet_path(@snippet), class: 'green button'
+
       %p
-        = link_to 'Delete', @snippet, method: 'delete', class: 'red button'
-        = link_to 'Edit', edit_snippet_path(@snippet), class: 'green button'
-    %p
-      %strong= @snippet.language.name
+        %strong= @snippet.language.name
+        = "― #{@snippet.description}" unless @snippet.description.blank?
 
-      = "― #{@snippet.description}" unless @snippet.description.blank?
-
-.row.clearfix
-  .container
-    %table.code-table
-      %tr
-        %td.code
-          - 1.upto(@snippet.content.split("\n").length) do |n|
-            %a{name: n, href: "##{n}"}= n
-            %br
-        %td
-          = preserve raw @snippet.pretty_content
-
-.row.clearfix
-  .container
-    %h3 Comments
-    = render @snippet.comments
-
-- if signed_in?
   .row.clearfix
     .container
-      %h3 Make a Comment
-      = render 'comments/form', snippet_id: @snippet.id
-- else
-  .row.clearfix
-    .container
-      %h3 Sign in to leave a comment.
+      %table.code-table
+        %tr
+          %td.code
+            - 1.upto(@snippet.content.split("\n").length) do |n|
+              %a{name: n, href: "##{n}"}= n
+              %br
+          %td
+            = preserve raw @snippet.pretty_content
+
+  - if @snippet.comments.any?
+    .row.clearfix
+      .container
+        %h3 Comments
+        = render @snippet.comments
+
+  - if signed_in?
+    .row.clearfix
+      .container
+        %h3 Make a Comment
+        = render 'comments/form', snippet_id: @snippet.id
+  - else
+    .row.clearfix
+      .container
+        %h3 Sign in to leave a comment.

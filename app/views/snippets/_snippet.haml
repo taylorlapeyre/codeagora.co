@@ -1,8 +1,13 @@
 .snippet-box
   %h3
     %span.username= link_to snippet.user.username, snippet.user
-    \/
+    = '/'
     = link_to snippet.name, snippet
+  %p.details
+    #{time_ago_in_words(snippet.created_at)} ago
+    - unless snippet.public?
+      ·
+      %span.private Private
   %p= snippet.description
   = preserve raw snippet.pretty_content
 %hr
