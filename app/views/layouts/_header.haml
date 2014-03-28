@@ -7,6 +7,7 @@
         = link_to "Sign Out", sign_out_path, via: :delete
     .column.half.nav
       %p
+        = link_to "Your Snippets", current_user
         = link_to "Create a Snippet", new_snippet_path, class: 'clear-button'
         .floating-gravatar= gravatar_for current_user
 - else

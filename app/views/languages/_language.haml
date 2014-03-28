@@ -1,5 +1,6 @@
+- snippet_count = language.snippets.count
 .language-box
   %h3
     = link_to language.name, language
-    %span{style: "float: right; color: #aaa"}= language.snippets.count
+    %span{style: "float: right; color: #aaa"} #{snippet_count} #{"Snippet".pluralize(snippet_count)}
   = preserve raw language.pretty_description
