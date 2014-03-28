@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :snippets
   has_many :comments
+  has_many :notifications
 
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true, format: { with: VALID_EMAIL_REGEX }
@@ -28,7 +29,15 @@ class User < ActiveRecord::Base
     user
   end
 
+  def unread_notifications
+    notifications.where(unread: true)
+  end
+
   def to_param
     username
+  end
+
+  def notify(content)
+    notifications.create content: content
   end
 end

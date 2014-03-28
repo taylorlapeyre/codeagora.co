@@ -13,9 +13,11 @@
     = render 'layouts/header'
     - if flash.any?
       - flash.each do |key, value|
-        %section.clearfix{:class => "alert #{key}"}
+        .clearfix{:class => "alert #{key}"}
           .container
             %strong= value
+    - if signed_in? && current_user.unread_notifications.any?
+      = render current_user.unread_notifications
 
     = yield
 
