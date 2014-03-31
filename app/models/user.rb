@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   has_many :comments
 
   validates :username, uniqueness: true, presence: true
-  validates :email, uniqueness: true, presence: true, format: { with: VALID_EMAIL_REGEX }
+  validates :email, uniqueness: true,
+                    presence: true,
+                    format: { with: VALID_EMAIL_REGEX }
   validates :password, length: { minimum: 6 }
 
   before_save { self.email = email.downcase }
@@ -17,8 +19,8 @@ class User < ActiveRecord::Base
     unless user
       new_password = SecureRandom.hex(16)
       user = {
-        username: auth["info"]["nickname"],
-        email: auth["info"]["email"],
+        username: auth['info']['nickname'],
+        email: auth['info']['email'],
         password: new_password,
         password_confirmation: new_password
       }

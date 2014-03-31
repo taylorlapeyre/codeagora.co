@@ -1,5 +1,5 @@
 class Snippet < ActiveRecord::Base
-    include ApplicationHelper
+  include ApplicationHelper
 
   validates :name, :content, presence: true
   validates :permalink, presence: true, uniqueness: true
@@ -10,11 +10,10 @@ class Snippet < ActiveRecord::Base
   has_many   :comments
 
   before_validation :assign_permalink
-  before_validation :assign_name, if: Proc.new { |s| s.name.blank? }
+  before_validation :assign_name, if: proc { |s| s.name.blank? }
 
   default_scope -> { where public: true }
   default_scope -> { order 'created_at DESC' }
-
 
   def to_param
     permalink

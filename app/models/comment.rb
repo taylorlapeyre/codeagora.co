@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-    include ApplicationHelper
+  include ApplicationHelper
 
   belongs_to :snippet
   belongs_to :user
