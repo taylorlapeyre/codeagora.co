@@ -19,7 +19,7 @@ class SnippetsController < ApplicationController
 
   def update
     if @snippet.update snippet_params
-      flash[:notice] = "Snippet updated."
+      flash[:notice] = 'Snippet updated.'
       redirect_to @snippet
     else
       render :edit
@@ -29,7 +29,7 @@ class SnippetsController < ApplicationController
   def create
     @snippet = current_user.snippets.new snippet_params
     if @snippet.save
-      flash[:notice] = "Snippet created."
+      flash[:notice] = 'Snippet created.'
       redirect_to @snippet
     else
       render :new
@@ -38,31 +38,33 @@ class SnippetsController < ApplicationController
 
   def destroy
     @snippet.destroy
-    flash[:notice] = "Snippet deleted."
+    flash[:notice] = 'Snippet deleted.'
     redirect_to :snippets
   end
 
   private
 
-    def snippet_params
-      params.require(:snippet).permit(:name, :content, :permalink, :language_id, :description, :public)
-    end
+  def snippet_params
+    params.require(:snippet).permit(%i(
+      name content permalink language_id description public
+    ))
+  end
 
-    def set_snippet
-      @snippet   = Snippet.find_by_permalink(params[:id])
-      @snippet ||= Snippet.find_by_permalink_and_public(params[:id], false)
-      not_found unless @snippet
-    end
+  def set_snippet
+    @snippet   = Snippet.find_by_permalink(params[:id])
+    @snippet ||= Snippet.find_by_permalink_and_public(params[:id], false)
+    not_found unless @snippet
+  end
 
-    def signed_in
-      unless signed_in?
-        flash[:error] = "You must sign in to access that page"
-        redirect_to :root
-      end
+  def signed_in
+    unless signed_in?
+      flash[:error] = 'You must sign in to access that page'
+      redirect_to :root
     end
+  end
 
-    def correct_user
-      snippet = current_user.snippets.unscoped.find_by_permalink(params[:id])
-      redirect_to :root if snippet.nil?
-    end
+  def correct_user
+    snippet = current_user.snippets.unscoped.find_by_permalink(params[:id])
+    redirect_to :root if snippet.nil?
+  end
 end

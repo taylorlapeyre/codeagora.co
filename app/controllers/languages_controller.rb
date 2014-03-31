@@ -1,7 +1,5 @@
+# Languages are only created and updated through seeds or the console itself.
 class LanguagesController < ApplicationController
-
-  # Languages are only created and updated through seeds or the console itself.
-
   def index
     @languages = Language.all.order(:name)
   end
