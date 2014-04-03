@@ -12,7 +12,7 @@
 - ~~Private snippets~~
 - ~~Commenting on snippets~~
 - "Smart" default front page
-- Notifications (just comments)
+- ~~Notifications (just comments)~~
 - Snippet tagging
 - Search (Probably not full text, just tags)
 - Public API
