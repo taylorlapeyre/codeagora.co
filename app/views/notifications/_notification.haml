@@ -1,0 +1,6 @@
+.row.clearfix.alert.notification
+  .container
+    %p
+      %strong= notification.content
+    %a.blue.button.mark-as-read{data: { id: notification.id }}
+      %strong= Notification::CONFIRMATION_DIALOGS.sample
