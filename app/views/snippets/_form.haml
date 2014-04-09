@@ -1,3 +1,4 @@
+= @snippet.tag_list
 = form_for @snippet do |f|
   .form-group
     = f.label :name
@@ -12,6 +13,10 @@
     = f.label :content
     = f.text_area :content, class: 'code'
   .form-group
+    = f.label :tags
+    = f.text_field :tag_list
+  .form-group
     %p Private snippets are only visible to those with a link to them.
     = f.button "Make it Public",  type: 'submit', name: 'snippet[public]', value: 1, class: 'blue button'
     = f.button "Make it Private", type: 'submit', name: 'snippet[public]', value: 0, class: 'green button'
+  
