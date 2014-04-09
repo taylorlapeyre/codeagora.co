@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase }
 
+  acts_as_tagger
+
   def self.find_or_create_by_omniauth(auth)
     user = User.find_by_email(auth['info']['email'])
 
