@@ -10,6 +10,7 @@ gem 'bcrypt-ruby'
 gem 'pygmentize'
 gem 'select2-rails'
 gem 'rdiscount'
+gem 'acts-as-taggable-on'
 
 # assets
 gem 'sass-rails'
