@@ -46,7 +46,7 @@ class SnippetsController < ApplicationController
 
   def snippet_params
     params.require(:snippet).permit(%i(
-      name content permalink language_id description public
+      name content permalink language_id description tag_list public
     ))
   end
 
