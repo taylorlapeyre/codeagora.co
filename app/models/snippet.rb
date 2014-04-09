@@ -1,6 +1,8 @@
 class Snippet < ActiveRecord::Base
   include ApplicationHelper
 
+  acts_as_taggable
+  
   validates :name, :content, presence: true
   validates :permalink, presence: true, uniqueness: true
   validates_presence_of :language
