@@ -14,9 +14,7 @@
   .hero.clearfix
     .container
       %h1.logo= link_to "Agora", root_url
-      %p Sharing code has never been easier.
+      %p We're making sharing code easier than ever before.
       %p= link_to "Sign In with GitHub", "/auth/github", class: 'clear-button github-link'
-      %p
-        Or
-        = link_to 'Use Your Email', sign_up_url
+      %p.small= link_to 'Use Your Email Instead', sign_up_url
 
