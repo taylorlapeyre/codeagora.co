@@ -12,5 +12,7 @@ Agora::Application.routes.draw do
   get '/signin',  to: "sessions#new",     as: 'sign_in'
   get '/signout', to: "sessions#destroy", as: 'sign_out'
 
-  get "/auth/:provider/callback" => "sessions#github_login"
+  get '/auth/:provider/callback' => 'sessions#github_login'
+
+  get '/snippets/tagged/:tag' => 'snippets#tagged'
 end
