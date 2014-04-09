@@ -7,6 +7,14 @@ class SnippetsController < ApplicationController
     @snippets = Snippet.all
   end
 
+  def tagged
+    if params[:tag].present? 
+      @snippets = Snippet.tagged_with(params[:tag])
+    else 
+      @snippets = Snippet.all
+    end  
+  end
+
   def show
   end
 
