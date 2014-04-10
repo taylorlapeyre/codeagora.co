@@ -14,6 +14,3 @@
 #= require jquery_ujs
 #= require select2
 #= require_tree .
-
-$ ->
-  $('select').select2();

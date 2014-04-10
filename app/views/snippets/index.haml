@@ -1,6 +1,9 @@
 .row.clearfix
   .container
-    %h2 Newest Snippets
+    - if @tag
+      %h2 Snippets Tagged With “#{@tag}”
+    - else
+      %h2 Newest Snippets
 
 .row.clearfix
   .container

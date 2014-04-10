@@ -4,7 +4,12 @@ class SnippetsController < ApplicationController
   before_filter :correct_user, only:   [:edit, :update, :destroy]
 
   def index
-    @snippets = Snippet.all
+    @tag = params[:tag]
+    if @tag
+      @snippets = Snippet.select { |s| s.tags.pluck(:name).include? @tag }
+    else
+      @snippets = Snippet.all
+    end
   end
 
   def show
@@ -46,7 +51,7 @@ class SnippetsController < ApplicationController
 
   def snippet_params
     params.require(:snippet).permit(%i(
-      name content permalink language_id description public
+      name content permalink language_id description public tag_list
     ))
   end
 
