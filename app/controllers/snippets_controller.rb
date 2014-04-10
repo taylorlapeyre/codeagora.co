@@ -4,15 +4,12 @@ class SnippetsController < ApplicationController
   before_filter :correct_user, only:   [:edit, :update, :destroy]
 
   def index
-    @snippets = Snippet.all
-  end
-
-  def tagged
-    if params[:tag].present? 
-      @snippets = Snippet.tagged_with(params[:tag])
-    else 
+    @tag = params[:tag]
+    if @tag.present?
+      @snippets = Snippet.tagged_with params[:tag]
+    else
       @snippets = Snippet.all
-    end  
+    end
   end
 
   def show

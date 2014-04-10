@@ -13,6 +13,4 @@ Agora::Application.routes.draw do
   get '/signout', to: "sessions#destroy", as: 'sign_out'
 
   get '/auth/:provider/callback' => 'sessions#github_login'
-
-  get '/snippets/tagged/:tag' => 'snippets#tagged'
 end

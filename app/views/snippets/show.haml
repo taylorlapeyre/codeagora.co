@@ -3,8 +3,7 @@
   .row.clearfix
     %ul.tags
       - @snippet.tags.each do |tag|
-        %li
-          %a{:href => '/snippets/tagged/' + tag.name} #{tag.name}
+        %li= link_to tag, snippets_path(tag: tag.name)
 
     .container
       %h2
