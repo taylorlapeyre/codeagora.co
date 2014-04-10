@@ -1,25 +1,36 @@
 @import "variables";
 
 .tags{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  float:  right;
+  float: right;
+
+  padding-right: 20px;
+
+  @media (min-width: 40rem) {
+    padding-top: 20px;
+  }
+
+  @media (min-width: 78rem) {
+    float: left;
+    padding-top: 18px;
+    padding-left: 5%;
+    list-style: none;
+  }
 }
 
 .tags li, .tags a{
-  float: left;
+  display: block;
   height: 24px;
   line-height: 24px;
   position: relative;
-  font-size: 11px;
+  font-size: 0.8em;
+  margin-bottom: 10px;
 }
 
 .tags a{
   margin-left: 20px;
   padding: 0 10px 0 12px;
-  background: $blue;
-  color: #fff;
+  background: lighten($blue, 10%);
+  color: #FFF;
   text-decoration: none;
   -moz-border-radius-bottomright: 4px;
   -webkit-border-bottom-right-radius: 4px;
@@ -37,7 +48,7 @@
   left: -12px;
   width: 0;
   height: 0;
-  border-color: transparent $blue transparent transparent;
+  border-color: transparent lighten($blue, 10%) transparent transparent;
   border-style: solid;
   border-width: 12px 12px 12px 0;
 }
@@ -59,6 +70,6 @@
   box-shadow: -1px -1px 2px #004977;
 }
 
-.tags a:hover{background: #555;}
+.tags a:hover{background: $blue;}
 
-.tags a:hover:before{border-color: transparent #555 transparent transparent;}
+.tags a:hover:before{border-color: transparent $blue transparent transparent;}

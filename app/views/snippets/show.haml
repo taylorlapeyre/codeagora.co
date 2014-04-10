@@ -1,6 +1,11 @@
 .snippet-page
 
   .row.clearfix
+    %ul.tags
+      - @snippet.tags.each do |tag|
+        %li
+          %a{:href => '/snippets/tagged/' + tag.name} #{tag.name}
+
     .container
       %h2
         %span.username= link_to @snippet.user.username, @snippet.user
@@ -32,13 +37,6 @@
               %br
           %td
             = preserve raw @snippet.pretty_content
-
-  .row.clearfix
-    .container
-      %ul.tags
-        - @snippet.tags.each do |tag|
-          %li
-            %a{:href => '/snippets/tagged/' + tag.name} #{tag.name}
 
   - if @snippet.comments.any?
     .row.clearfix
