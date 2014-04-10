@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # basic
-gem 'rails', '4.0.3'
+gem 'rails', '4.0.4'
 gem 'pg'
 gem 'jbuilder'
 
@@ -13,7 +13,7 @@ gem 'rdiscount'
 gem 'acts-as-taggable-on'
 
 # assets
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
