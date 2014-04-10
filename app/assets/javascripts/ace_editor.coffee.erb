@@ -5,13 +5,13 @@ window.editor =
     '<%= language.name %>': '<%= language.to_aced %>'
     <% end %>
 
-  init: (e='#editor_textarea', t='chrome', m='javascript' ) ->
+  init: (e='#editor_textarea', t='github', m='javascript' ) ->
     $(e).acedInitTA theme: t, mode: m
     @editor = $($(e).data('ace-div')).aced()
     @configureAppearance()
 
   configureAppearance: ->
-    @editor.setFontSize '80%'
+    @editor.setFontSize '70%'
     @editor.setShowPrintMargin false
     @editor.getSession().setTabSize 2
 
