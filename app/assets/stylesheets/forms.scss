@@ -13,6 +13,8 @@ form {
       font-weight: 600;
     }
 
+    // XXX: SELECT2 UGLINESS
+
     select, .select2-container {
       width: 100%;
     }
@@ -20,6 +22,22 @@ form {
     .select2-choice {
       height: 1.5em;
     }
+
+    .select2-container-multi {
+      .select2-choices {
+        @extend input[type="text"];
+        padding: 0 !important;
+        background-image: none !important;
+      }
+
+      .select2-search-choice {
+        line-height: 20px !important;
+        margin: 5px 0 3px 5px !important;
+        background-image: none !important;
+        background-color: lighten($black, 70%) !important;
+      }
+    }
+
 
     input[type="text"] {
       -webkit-appearance: none;

@@ -16,6 +16,5 @@
 #= require_tree .
 
 $ ->
-  $('select').select2();
-  $('.form-group #snippet_tag_list').select2({tags:[]});
-
+  $('select').select2()
+  $('.form-group #snippet_tag_list').select2 tags: []
