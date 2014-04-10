@@ -11,9 +11,4 @@
     · #{snippet.comments.count} Comments
   %p= snippet.description
   = preserve raw snippet.pretty_content
-%ul.tags
-  - snippet.tags.each do |tag|
-    %li
-      %a{:href => '/snippets/tagged/' + tag.name} #{tag.name}
-%br
 %hr
