@@ -38,6 +38,20 @@ form {
       }
     }
 
+    .select2-input {
+      font-family: inherit !important;
+      box-shadow: none !important;
+      border-radius: none !important;
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    .select2-results .select2-highlighted {
+      background: $blue !important;
+    }
+
 
     input[type="text"] {
       -webkit-appearance: none;

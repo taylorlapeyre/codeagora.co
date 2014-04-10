@@ -14,7 +14,3 @@
 #= require jquery_ujs
 #= require select2
 #= require_tree .
-
-$ ->
-  $('select').select2()
-  $('.form-group #snippet_tag_list').select2 tags: []

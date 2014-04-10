@@ -17,6 +17,10 @@ class Snippet < ActiveRecord::Base
   default_scope -> { where public: true }
   default_scope -> { order 'created_at DESC' }
 
+  def self.all_tags
+    Snippet.all.map(&:tag_list).flatten
+  end
+
   def to_param
     permalink
   end
