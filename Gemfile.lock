@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/selbyk/aced_rails.git
+  revision: 6dd619f24ae155bcc982be36f8c4aa55d30c856f
+  specs:
+    aced_rails (0.2.1)
+      rails (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -204,6 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aced_rails!
   bcrypt-ruby
   better_errors
   capybara

@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'haml'
+gem 'aced_rails', :git => 'git://github.com/selbyk/aced_rails.git'
 
 # social
 gem 'omniauth-github'
