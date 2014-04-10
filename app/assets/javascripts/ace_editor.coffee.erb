@@ -8,6 +8,12 @@ window.editor =
   init: (e='#editor_textarea', t='chrome', m='javascript' ) ->
     $(e).acedInitTA theme: t, mode: m
     @editor = $($(e).data('ace-div')).aced()
+    @configureAppearance()
+
+  configureAppearance: ->
+    @editor.setFontSize '80%'
+    @editor.setShowPrintMargin false
+    @editor.getSession().setTabSize 2
 
   init_on_select: (s) ->
     @init()
@@ -17,17 +23,17 @@ window.editor =
   init_check: ->
     @init() unless @editor
 
-  get_editor: ->
+  getEditor: ->
     @init_check()
     @editor
 
   theme: (t) ->
-    @get_editor().setTheme "ace/theme/#{t}"
+    @getEditor().setTheme "ace/theme/#{t}"
 
   highlight: (m) ->
     @init_check()
     m = if (m of @aliases) then @aliases[m] else m.toLowerCase()
-    @get_editor().getSession().setMode "ace/mode/#{m}"
+    @getEditor().getSession().setMode "ace/mode/#{m}"
 
   highlight_on_select: (s) ->
     $(s).change ->

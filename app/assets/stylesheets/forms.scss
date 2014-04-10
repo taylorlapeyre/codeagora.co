@@ -21,6 +21,11 @@ form {
       height: 1.5em;
     }
 
+    .ace_editor {
+      height: 500px !important;
+      width: auto !important;
+    }
+
     input[type="text"] {
       -webkit-appearance: none;
       outline: none;
