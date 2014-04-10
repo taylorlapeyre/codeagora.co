@@ -20,7 +20,7 @@ void hello(string name) {
   }},
 
   {name: 'Coffeescript', description: %Q{
-hello(name) ->
+hello = (name) ->
   console.log("Hello, \#{name}!")
   }},
 
