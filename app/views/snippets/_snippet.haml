@@ -8,7 +8,8 @@
     - unless snippet.public?
       ·
       %span.private Private
-    · #{snippet.comments.count} Comments
+    ·
+    = link_to "#{snippet.comments.count} Comments", snippet
   %p= snippet.description
   = preserve raw snippet.pretty_content
 %hr
