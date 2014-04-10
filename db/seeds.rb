@@ -19,6 +19,11 @@ void hello(string name) {
 }
   }},
 
+  {name: 'Coffeescript', description: %Q{
+hello(name) ->
+  console.log("Hello, \#{name}!")
+  }},
+
   {name: 'Python', description: %Q{
 def hello(name):
   print("Hello, {}!".format(name))
