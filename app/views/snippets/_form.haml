@@ -10,7 +10,9 @@
     = f.collection_select :language_id, Language.all, :id, :name
   .form-group
     = f.label :content
-    = f.text_area :content, class: 'code'
+    = f.text_area :content, id: 'editor_textarea', class: "tomorrow", :rows => '10'
+    :javascript
+      window.editor.init_on_select('#snippet_language_id')
   .form-group
     %p Private snippets are only visible to those with a link to them.
     = f.button "Make it Public",  type: 'submit', name: 'snippet[public]', value: 1, class: 'blue button'
