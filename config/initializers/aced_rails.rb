@@ -6,7 +6,7 @@ AcedRails.configure do |config|
   #   mono_industrial, monokai, pastel_on_dark, solarized_dark, solarized_light, textmate,
   #   tomorrow, tomorrow_night, tomorrow_night_blue, tomorrow_night_bright,
   #   tomorrow_night_eighties, twilight, vibrant_ink, xcode
-  config.themes = [:chrome]
+  config.themes = [:github]
 
   # select modes
   # available modes:
@@ -17,7 +17,7 @@ AcedRails.configure do |config|
   #   objectivec, ocaml, perl, pgsql, php, powershell, python, r, rdoc, rhtml,
   #   ruby, scad, scala, scheme, scss, sh, sql, stylus, svg, tcl, tex, text,
   #   textile, tm_snippet, typescript, vbscript, xml, xquery, yaml
-  config.modes = [:c_cpp, :clojure, :coffee, :css, :java, :javascript, :lua, :php, :python, :ruby, :sh, :text]
+  config.modes = Language.all.map(&:to_aced)
 
   # select workers:
   # available workers (use in pair with themes):

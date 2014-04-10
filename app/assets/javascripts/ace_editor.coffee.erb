@@ -1,0 +1,34 @@
+window.editor =
+  editor: null
+  aliases:
+    <% Language.all.each do |language| %>
+    '<%= language.name %>': '<%= language.to_aced %>'
+    <% end %>
+
+  init: (e='#editor_textarea', t='chrome', m='javascript' ) ->
+    $(e).acedInitTA theme: t, mode: m
+    @editor = $($(e).data('ace-div')).aced()
+
+  init_on_select: (s) ->
+    @init()
+    @highlight $(s).find('option:selected').text()
+    @highlight_on_select s
+
+  init_check: ->
+    @init() unless @editor
+
+  get_editor: ->
+    @init_check()
+    @editor
+
+  theme: (t) ->
+    @get_editor().setTheme "ace/theme/#{t}"
+
+  highlight: (m) ->
+    @init_check()
+    m = if (m of @aliases) then @aliases[m] else m.toLowerCase()
+    @get_editor().getSession().setMode "ace/mode/#{m}"
+
+  highlight_on_select: (s) ->
+    $(s).change ->
+      window.editor.highlight $(this).find('option:selected').text()
