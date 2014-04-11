@@ -7,7 +7,7 @@
     = f.text_area :description, class: 'text', placeholder: 'Optional'
   .form-group
     = f.label :language
-    = f.collection_select :language_id, Language.all, :id, :name
+    = f.collection_select :language_id, Language.all.order(:name), :id, :name, {:selected => @snippet.new_record? ? 12 : @snippet.language_id}
   .form-group
     = f.label :content
     = f.text_area :content, id: 'editor_textarea', :rows => 20
