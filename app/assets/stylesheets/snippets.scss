@@ -72,3 +72,11 @@
   color: $red;
   text-transform: uppercase;
 }
+
+.pagination {
+  li {
+    list-style: none;
+    display: inline;
+    margin: 0 1em;
+  }
+}

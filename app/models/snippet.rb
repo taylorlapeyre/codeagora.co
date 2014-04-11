@@ -15,8 +15,18 @@ class Snippet < ActiveRecord::Base
   default_scope -> { where public: true }
   default_scope -> { order 'created_at DESC' }
 
+  PAGE_SIZE = 10
+
   def to_param
     permalink
+  end
+
+  def self.page n
+    Snippet.offset((n - 1) * PAGE_SIZE).limit(PAGE_SIZE)
+  end
+
+  def self.page_count
+    Snippet.count / PAGE_SIZE
   end
 
   def pretty_content
