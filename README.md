@@ -15,7 +15,7 @@
 - ~~Pagination~~
 - ~~Notifications (just comments)~~
 - ~~Awesome Editor~~
-- Email
+- ~~Email~~
 - Snippet tagging
 - Search (Probably not full text, just tags)
 - Public API
