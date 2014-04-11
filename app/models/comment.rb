@@ -7,8 +7,8 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user, :snippet
   validates :content, presence: true
 
-  after_create :notify_snippet_creator
-  after_create :notify_other_commentors
+  after_create :notify_snippet_creator,  unless: proc { |c| c.user == c.snippet.user }
+  after_create :notify_other_commentors, unless: proc { |c| c.user == c.snippet.user }
 
   def pretty_content
     markdown content
@@ -18,6 +18,7 @@ class Comment < ActiveRecord::Base
     message = "#{user.username} posted a comment on your snippet: #{snippet.name}."
 
     snippet.user.notify(message)
+    CommentsMailer.comment_notification_email(self).deliver
   end
 
   def notify_other_commentors
@@ -26,5 +27,6 @@ class Comment < ActiveRecord::Base
     snippet.comments.map(&:user).each do |dude|
       dude.notify(message) unless dude == user
     end
+    CommentsMailer.discussion_email(self).deliver
   end
 end
