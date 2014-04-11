@@ -14,7 +14,7 @@
 - "Smart" default front page
 - Pagination
 - ~~Notifications (just comments)~~
-- Awesome Editor
+- ~~Awesome Editor~~
 - Email
 - Snippet tagging
 - Search (Probably not full text, just tags)
