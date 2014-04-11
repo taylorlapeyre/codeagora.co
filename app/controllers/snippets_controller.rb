@@ -4,7 +4,8 @@ class SnippetsController < ApplicationController
   before_filter :correct_user, only:   [:edit, :update, :destroy]
 
   def index
-    @snippets = Snippet.all
+    @page = params[:page] ? params[:page].to_i : 1
+    @snippets = Snippet.page(@page)
   end
 
   def show
