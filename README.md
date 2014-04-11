@@ -13,10 +13,12 @@
 - ~~Commenting on snippets~~
 - "Smart" default front page
 - ~~Notifications (just comments)~~
+- Awesome Editor
+- Email
 - Snippet tagging
 - Search (Probably not full text, just tags)
 - Public API
-- Atom integration
+- Editor integration
 
 ## The Things
 
