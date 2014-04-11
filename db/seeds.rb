@@ -95,6 +95,32 @@ hello:
   }.strip},
 
   {name: 'Text', description: %Q{
-hello, name
+Hello, name!
+  }.strip},
+
+  {name: 'HTML', description: %Q{
+<h1>Hello, name!</h1>
+  }.strip},
+
+  {name: 'CSS', description: %Q{
+.hello-name {
+  visibility: visible;
+}
+  }.strip},
+
+  {name: 'Diff', description: %Q{
+diff --git a/hello.txt b/hello.txt
+index c3516ab..c44d7f2 100644
+--- a/hello.txt
++++ b/hello.txt
+@@ -1,11 +1,30 @@ hello:
+-hello, ...
++hello, whatever your name is
+  }.strip},
+
+  {name: 'Go', description: %Q{
+func hello(name string) string {
+  fmt.Println("Hello, " + name + "!")
+}
   }.strip},
 ])

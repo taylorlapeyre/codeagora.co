@@ -26,12 +26,21 @@
   }
 }
 
-.floating-gravatar img {
+.floating-logo {
+  text-transform: uppercase;
   position: fixed;
   top: 20px;
   right: 20px;
+  color: lighten($black, 30%);
+  border: 1px solid lighten($black, 30%);;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: normal;
+  font-family: "Oswald", inherit;
+  border-bottom: 5px solid lighten($black, 30%);
+  cursor: pointer;
+
   max-height: 2.3em !important;
   z-index: -1;
-  border-radius: 50px;
   opacity: 0.8;
 }
