@@ -9,8 +9,8 @@ class Snippet < ActiveRecord::Base
   belongs_to :language
   has_many   :comments
 
-  before_validation :assign_permalink
-  before_validation :assign_name, if: proc { |s| s.name.blank? }
+  before_validation :assign_permalink, if: proc { |s| s.permalink.blank? }
+  before_validation :assign_name,      if: proc { |s| s.name.blank? }
 
   default_scope -> { where public: true }
   default_scope -> { order 'created_at DESC' }
@@ -31,6 +31,6 @@ class Snippet < ActiveRecord::Base
   end
 
   def assign_name
-    self.name = unique_name_for content, user.username
+    self.name = permalink
   end
 end

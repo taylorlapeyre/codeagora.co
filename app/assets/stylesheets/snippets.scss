@@ -59,6 +59,13 @@
   margin: 0;
   padding: 0;
   color: lighten($black, 20%);
+
+  a {
+    color: lighten($black, 20%);
+     &:hover {
+       text-decoration: underline;
+     }
+  }
 }
 
 .private {

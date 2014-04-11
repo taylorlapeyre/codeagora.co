@@ -1,0 +1,40 @@
+window.editor =
+  editor: null
+  aliases:
+    <% Language.all.each do |language| %>
+    '<%= language.name %>': '<%= language.to_aced %>'
+    <% end %>
+
+  init: (e='#editor_textarea', t='github', m='javascript' ) ->
+    $(e).acedInitTA theme: t, mode: m
+    @editor = $($(e).data('ace-div')).aced()
+    @configureAppearance()
+
+  configureAppearance: ->
+    @editor.setFontSize '70%'
+    @editor.setShowPrintMargin false
+    @editor.getSession().setTabSize 2
+
+  init_on_select: (s) ->
+    @init()
+    @highlight $(s).find('option:selected').text()
+    @highlight_on_select s
+
+  init_check: ->
+    @init() unless @editor
+
+  getEditor: ->
+    @init_check()
+    @editor
+
+  theme: (t) ->
+    @getEditor().setTheme "ace/theme/#{t}"
+
+  highlight: (m) ->
+    @init_check()
+    m = if (m of @aliases) then @aliases[m] else m.toLowerCase()
+    @getEditor().getSession().setMode "ace/mode/#{m}"
+
+  highlight_on_select: (s) ->
+    $(s).change ->
+      window.editor.highlight $(this).find('option:selected').text()
