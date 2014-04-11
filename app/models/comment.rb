@@ -16,11 +16,15 @@ class Comment < ActiveRecord::Base
 
   def notify_snippet_creator
     message = "#{user.username} posted a comment on your snippet: #{snippet.name}."
+
     snippet.user.notify(message)
   end
 
   def notify_other_commentors
     message = "#{user.username} posted a comment on a snippet you've discussed before: #{snippet.name}."
-    snippet.comments.map(&:user).each { |dude| dude.notify(message) }
+
+    snippet.comments.map(&:user).each do |dude|
+      dude.notify(message) unless dude == user
+    end
   end
 end
