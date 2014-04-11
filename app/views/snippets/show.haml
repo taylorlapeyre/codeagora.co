@@ -6,7 +6,6 @@
         %span.username= link_to @snippet.user.username, @snippet.user
         = '/'
         = @snippet.name
-      %p= @snippet.to_training_data
       %p.details
         #{time_ago_in_words(@snippet.created_at)} ago
         - unless @snippet.public?
