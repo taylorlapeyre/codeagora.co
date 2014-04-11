@@ -112,4 +112,10 @@ index c3516ab..c44d7f2 100644
 -hello, ...
 +hello, whatever your name is
   }.strip},
+
+  {name: 'Go', description: %Q{
+func hello(name string) string {
+  fmt.Println("Hello, " + name + "!")
+}
+  }.strip},
 ])
