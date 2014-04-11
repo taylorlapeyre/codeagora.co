@@ -95,7 +95,7 @@ Hello, name!
 
   {name: 'HTML', description: %Q{
 <h1>Hello, name!</h1>
-  }.strip}
+  }.strip},
 
   {name: 'CSS', description: %Q{
 .hello-name {
