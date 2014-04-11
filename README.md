@@ -12,7 +12,7 @@
 - ~~Private snippets~~
 - ~~Commenting on snippets~~
 - "Smart" default front page
-- Pagination
+- ~~Pagination~~
 - ~~Notifications (just comments)~~
 - ~~Awesome Editor~~
 - Email
