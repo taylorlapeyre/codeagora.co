@@ -1,5 +1,8 @@
 window.editor =
   editor: null
+
+  predicted: false
+
   aliases:
     <% Language.all.each do |language| %>
     '<%= language.name %>': '<%= language.to_aced %>'
@@ -40,6 +43,7 @@ window.editor =
       window.editor.highlight $(this).find('option:selected').text()
 
   predict: () ->
+    return if @predicted
     @init_check()
     code = @editor.getSession().getValue();
     ascii_codes = code.split("").map( (letter) -> return letter.charCodeAt(0) )
@@ -47,4 +51,5 @@ window.editor =
     inputs = Array.apply(null, new Array(128)).map(Number.prototype.valueOf,0)
     inputs[ascii_code]++ for ascii_code in ascii_codes
     inputs.map( (num) -> return num/num_letters )
+    @predicted = true
     alert(inputs)
