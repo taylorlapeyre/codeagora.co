@@ -90,7 +90,17 @@ hello:
   }.strip},
 
   {name: 'Text', description: %Q{
-hello, name
+Hello, name!
+  }.strip},
+
+  {name: 'HTML', description: %Q{
+<h1>Hello, name!</h1>
+  }.strip}
+
+  {name: 'CSS', description: %Q{
+.hello-name {
+  visibility: visible;
+}
   }.strip},
 
   {name: 'Diff', description: %Q{
