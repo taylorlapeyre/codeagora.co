@@ -38,3 +38,13 @@ window.editor =
   highlight_on_select: (s) ->
     $(s).change ->
       window.editor.highlight $(this).find('option:selected').text()
+
+  predict: () ->
+    @init_check()
+    code = @editor.getSession().getValue();
+    ascii_codes = code.split("").map( (letter) -> return letter.charCodeAt(0) )
+    num_letters = ascii_codes.length
+    inputs = Array.apply(null, new Array(128)).map(Number.prototype.valueOf,0)
+    inputs[ascii_code]++ for ascii_code in ascii_codes
+    inputs.map( (num) -> return num/num_letters )
+    alert(inputs)
