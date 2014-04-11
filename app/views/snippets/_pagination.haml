@@ -1,0 +1,8 @@
+%nav.pagination
+  .container
+    %ul
+    - (1..Snippet.page_count).each do |n|
+      - if @page == n
+        %li Page #{n}
+      - else
+        %li= link_to "Page #{n}", snippets_path(page: n)
