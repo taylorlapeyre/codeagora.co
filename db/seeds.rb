@@ -92,4 +92,14 @@ hello:
   {name: 'Text', description: %Q{
 hello, name
   }.strip},
+
+  {name: 'Diff', description: %Q{
+diff --git a/hello.txt b/hello.txt
+index c3516ab..c44d7f2 100644
+--- a/hello.txt
++++ b/hello.txt
+@@ -1,11 +1,30 @@ hello:
+-hello, ...
++hello, whatever your name is
+  }.strip},
 ])
