@@ -15,13 +15,13 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
 
   def self.find_or_create_by_omniauth(auth)
-    user = User.find_by_email(auth['info']['email'])
+    user = User.find_by_email(auth.info.email)
 
     unless user
       new_password = SecureRandom.hex(16)
       user = {
-        username: auth['info']['nickname'],
-        email: auth['info']['email'],
+        username: auth.info.nickname,
+        email: auth.info.email,
         password: new_password,
         password_confirmation: new_password
       }
