@@ -6,7 +6,7 @@
   <body>
     <h2>
       <%= @comment.user.username %> posted a comment on a
-      <%= link_to @comment.snippet.name, @comment.snippet %> that you've discussed before.
+      <%= link_to 'snippet', @comment.snippet %> that you've discussed before.
     </h2>
     <p>
       <strong>Preview:</strong><br>
