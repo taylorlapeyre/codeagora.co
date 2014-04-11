@@ -9,7 +9,7 @@
       %p
         = link_to "Your Snippets", current_user
         = link_to "Create a Snippet", new_snippet_path, class: 'clear-button'
-        .floating-gravatar= gravatar_for current_user
+        .floating-logo Agora
 - else
   .hero.clearfix
     .container
@@ -17,4 +17,3 @@
       %p We're making sharing code easier than ever before.
       %p= link_to "Sign In with GitHub", "/auth/github", class: 'clear-button github-link'
       %p.small= link_to 'Use Your Email Instead', sign_up_url
-
