@@ -23,7 +23,11 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by_omniauth(auth)
     flash[:notice] = 'Welcome back.'
     sign_in user
-    redirect_to :back
+    if request.env['HTTP_REFERER'].nil?
+      redirect_to :root
+    else
+      redirect_to :back
+    end
   end
 
   def destroy
