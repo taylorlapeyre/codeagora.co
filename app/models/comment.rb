@@ -25,7 +25,7 @@ class Comment < ActiveRecord::Base
     message = "#{user.username} posted a comment on a snippet you've discussed before: #{snippet.name}."
 
     snippet.comments.map(&:user).each do |dude|
-      dude.notify(message) unless dude == user
+      dude.notify(message) unless dude == snippet.user
     end
     CommentsMailer.discussion_email(self).deliver
   end

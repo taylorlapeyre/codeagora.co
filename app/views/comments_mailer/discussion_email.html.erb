@@ -11,7 +11,7 @@
     <p>
       <strong>Preview:</strong><br>
       <blockquote>
-        <%= @comment.content %><br><br>
+        <%= raw @comment.pretty_content %><br><br>
         <cite>― <%= @comment.user.username %></cite>
       </blockquote>
     </p>
