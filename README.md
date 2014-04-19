@@ -22,7 +22,7 @@
 - ~~Notifications (just comments)~~
 - ~~Awesome Editor~~
 - ~~Email~~
-- Snippet tagging
+- ~~Snippet tagging~~
 - Search (Probably not full text, just tags)
 - Public API
 - Editor integration
