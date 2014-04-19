@@ -12,6 +12,9 @@
     = f.label :content
     = f.text_area :content, id: 'editor_textarea', :rows => 20
   .form-group
+    = f.label :tags
+    = f.text_field :tag_list, placeholder: 'Optional'
+  .form-group
     %p Private snippets are only visible to those with a link to them.
     = f.button "Make it Public",  type: 'submit', name: 'snippet[public]', value: 1, class: 'blue button'
     = f.button "Make it Private", type: 'submit', name: 'snippet[public]', value: 0, class: 'green button'

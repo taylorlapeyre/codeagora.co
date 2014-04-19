@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328021905) do
+ActiveRecord::Schema.define(version: 20140410063627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,20 @@ ActiveRecord::Schema.define(version: 20140328021905) do
 
   add_index "snippets", ["language_id"], name: "index_snippets_on_language_id", using: :btree
   add_index "snippets", ["user_id"], name: "index_snippets_on_user_id", using: :btree
+
+  create_table "snippets_tags", id: false, force: true do |t|
+    t.integer "tag_id"
+    t.integer "snippet_id"
+  end
+
+  add_index "snippets_tags", ["snippet_id"], name: "index_snippets_tags_on_snippet_id", using: :btree
+  add_index "snippets_tags", ["tag_id"], name: "index_snippets_tags_on_tag_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

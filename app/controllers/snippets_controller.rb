@@ -5,7 +5,13 @@ class SnippetsController < ApplicationController
 
   def index
     @page = params[:page] ? params[:page].to_i : 1
-    @snippets = Snippet.page(@page)
+    @tag = params[:tag]
+
+    if @tag
+      @snippets = Snippet.page(@page).tagged_with(@tag)
+    else
+      @snippets = Snippet.page(@page)
+    end
   end
 
   def show
@@ -47,7 +53,7 @@ class SnippetsController < ApplicationController
 
   def snippet_params
     params.require(:snippet).permit(%i(
-      name content permalink language_id description public
+      name content permalink language_id description public tag_list
     ))
   end
 

@@ -41,4 +41,11 @@ describe Snippet do
     expect(Pygmentize).to receive(:process).with(@snippet.content, @snippet.language.to_pygments)
     expect(@snippet.pretty_content).to eq 'correct'
   end
+
+  it 'should know how to create tags for itself when they are supplied' do
+    @snippet.tag_list = 'awesome,fabulous'
+    expect(@snippet.save).to be_true
+    expect(@snippet.tags.count).to eq 2
+    expect(@snippet.tag_list).to eq 'awesome,fabulous'
+  end
 end

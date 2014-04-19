@@ -8,6 +8,7 @@ class Snippet < ActiveRecord::Base
   belongs_to :user
   belongs_to :language
   has_many   :comments
+  has_and_belongs_to_many :tags
 
   before_validation :assign_permalink, if: proc { |s| s.permalink.blank? }
   before_validation :assign_name,      if: proc { |s| s.name.blank? }
@@ -32,6 +33,20 @@ class Snippet < ActiveRecord::Base
   def pretty_content
     require 'pygmentize'
     Pygmentize.process(content, language.to_pygments)
+  end
+
+  def tag_list
+    tags.pluck(:name).join(',')
+  end
+
+  def tag_list=(string)
+    self.tags = string.split(',').map(&:strip).map do |tag|
+      Tag.find_or_create_by name: tag
+    end
+  end
+
+  def tagged_with(tag)
+    Snippet.select { |s| s.tags.pluck(:name).include? tag }
   end
 
   private

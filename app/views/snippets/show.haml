@@ -1,6 +1,9 @@
 .snippet-page
-
   .row.clearfix
+    %ul.tags
+      - @snippet.tags.each do |tag|
+        %li= link_to tag.name, snippets_path(tag: tag.name)
+
     .container
       %h2
         %span.username= link_to @snippet.user.username, @snippet.user

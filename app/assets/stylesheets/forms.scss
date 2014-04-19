@@ -13,6 +13,8 @@ form {
       font-weight: 600;
     }
 
+    // XXX: SELECT2 UGLINESS
+
     select, .select2-container {
       width: 100%;
     }
@@ -24,6 +26,35 @@ form {
     .ace_editor {
       // height: 500px !important;
       width: auto !important;
+    }
+
+    .select2-container-multi {
+      .select2-choices {
+        @extend input[type="text"];
+        padding: 0 !important;
+        background-image: none !important;
+      }
+
+      .select2-search-choice {
+        line-height: 20px !important;
+        margin: 5px 0 3px 5px !important;
+        background-image: none !important;
+        background-color: lighten($black, 70%) !important;
+      }
+    }
+
+    .select2-input {
+      font-family: inherit !important;
+      box-shadow: none !important;
+      border-radius: none !important;
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    .select2-results .select2-highlighted {
+      background: $blue !important;
     }
 
     input[type="text"] {
