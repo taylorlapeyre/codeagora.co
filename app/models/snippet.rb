@@ -16,14 +16,13 @@ class Snippet < ActiveRecord::Base
   default_scope -> { where public: true }
   default_scope -> { order 'created_at DESC' }
 
+  scope :tagged_with, ->(tag) { select { |s| s.tags.pluck(:name).include? tag } }
+  scope :page,        ->(n) { offset((n - 1) * PAGE_SIZE).limit(PAGE_SIZE) }
+
   PAGE_SIZE = 10
 
   def to_param
     permalink
-  end
-
-  def self.page n
-    Snippet.offset((n - 1) * PAGE_SIZE).limit(PAGE_SIZE)
   end
 
   def self.page_count
@@ -43,10 +42,6 @@ class Snippet < ActiveRecord::Base
     self.tags = string.split(',').map(&:strip).map do |tag|
       Tag.find_or_create_by name: tag
     end
-  end
-
-  def tagged_with(tag)
-    Snippet.select { |s| s.tags.pluck(:name).include? tag }
   end
 
   private
