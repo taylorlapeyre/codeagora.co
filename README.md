@@ -1,3 +1,9 @@
+## Authors
+
+- Taylor Lapeyre
+- Selby Kendrick
+- Holly Lions
+
 ## Features
 
 **[Initial Application Spec][spec]**
@@ -51,33 +57,63 @@
 
 ## Getting Started
 
+### Dependencies
+
+- Ruby (>= 2.0)
+
+```bash
+$ ruby -v
+ruby 2.1.1p76 (2014-02-24 revision 45161) [x86_64-darwin13.0]
+```
+
+- Rails (4.0.4)
+
+```bash
+$ gem install rails
+...
+$ rails --version
+Rails 4.0.4
+```
+
+- PostgreSQL
+
+```bash
+$ brew install postgres
+```
+
+### Running the App
+
 1. Open a terminal and change to the repository directory
 
 ``` bash
-$ pwd
-/Users/yourusername
-$ cd path/to/repo
+$ cd path/to/agora
 ```
 
-2. Make sure that all required packages are installed
+2. Start up your database
+
+```bash
+$ postgres -D /usr/local/var/postgres
+```
+
+3. Make sure that all required packages are installed
 
 ``` bash
 $ bundle install
 ```
 
-3. Make sure that all database migrations have been run
+4. Make sure that all database migrations have been run
 
 ``` bash
 $ bundle exec rake db:migrate
 ```
 
-4. Put some seed data in your development database
+5. Put some seed data in your development database
 
 ``` bash
 $ bundle exec rake db:seed
 ```
 
-5. Start up the rails server
+6. Start up the rails server
 
 ```
 $ rails server
