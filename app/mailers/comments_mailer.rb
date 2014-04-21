@@ -9,10 +9,10 @@ class CommentsMailer < ActionMailer::Base
     })
   end
 
-  def discussion_email(comment)
-    @comment = comment
+  def discussion_email(comment, user)
+    @comment, @user = comment, user
     mail({
-      to: comment.snippet.user.email,
+      to: user.email,
       subject: "New Response on @#{comment.snippet.name}"
     })
   end

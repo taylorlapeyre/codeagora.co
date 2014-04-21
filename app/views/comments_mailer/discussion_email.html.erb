@@ -5,18 +5,18 @@
   </head>
   <body>
     <h2>
-      <%= @comment.user.username %> posted a comment on a
-      <%= link_to 'snippet', @comment.snippet %> that you've discussed before.
+      <%= @user.username %> posted a comment on a
+      <%= link_to 'snippet', url_for(@comment.snippet) %> that you've discussed before.
     </h2>
     <p>
       <strong>Preview:</strong><br>
       <blockquote>
         <%= raw @comment.pretty_content %><br><br>
-        <cite>― <%= @comment.user.username %></cite>
+        <cite>― <%= @user.username %></cite>
       </blockquote>
     </p>
     <p>
-      To respond, just follow <%= link_to 'this link', @comment.snippet %>.
+      To respond, just follow <%= link_to 'this link', url_for(@comment.snippet) %>.
     </p>
     <p>Have a great day!</p>
   </body>
