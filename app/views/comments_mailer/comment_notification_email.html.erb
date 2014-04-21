@@ -6,7 +6,7 @@
   <body>
     <h2>
       <%= @comment.user.username %> posted a comment on your snippet
-      <em><%= link_to @comment.snippet.name, @comment.snippet %></em>.
+      <em><%= link_to @comment.snippet.name, url_for(@comment.snippet) %></em>.
     </h2>
     <p>
       <strong>Preview:</strong><br>
@@ -16,7 +16,7 @@
       </blockquote>
     </p>
     <p>
-      To respond, just follow <%= link_to 'this link', @comment.snippet %>.
+      To respond, just follow <%= link_to 'this link', url_for(@comment.snippet) %>.
     </p>
     <p>Have a great day!</p>
   </body>
