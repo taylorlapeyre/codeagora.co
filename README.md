@@ -83,36 +83,38 @@ $ brew install postgres
 
 ### Running the App
 
-- Open a terminal and change to the repository directory
+(*Assuming a Unix system, but there are alternatives for Windows systems*)
+
+Open a terminal and change to the repository directory:
 
 ``` bash
 $ cd path/to/agora
 ```
-- Start up your database
+Start up your database:
 
 ```bash
 $ postgres -D /usr/local/var/postgres
 ```
 
-- Make sure that all required packages are installed
+Make sure that all required packages are installed:
 
 ``` bash
 $ bundle install
 ```
 
-- Make sure that all database migrations have been run
+Make sure that all database migrations have been run:
 
 ``` bash
 $ bundle exec rake db:migrate
 ```
 
-- Put some seed data in your development database
+Put some seed data in your development database
 
 ``` bash
 $ bundle exec rake db:seed
 ```
 
-- Start up the rails server
+Start up the rails server
 
 ```
 $ rails server
