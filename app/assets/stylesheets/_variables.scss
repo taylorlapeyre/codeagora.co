@@ -3,3 +3,5 @@ $black: #333434;
 $blue: #497bad;
 $green: #1ABC9C;
 $red: #E74C3C;
+$gradient: #de2d5f -webkit-linear-gradient(top left,#ce1986,#e9523e);
+$light-gradient: lighten(#de2d5f, 20%) -webkit-linear-gradient(top left,lighten(#ce1986, 20%), lighten(#e9523e, 10%));
