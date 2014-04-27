@@ -8,9 +8,9 @@ class SnippetsController < ApplicationController
     @tag = params[:tag]
 
     if @tag
-      @snippets = smart_sort Snippet.page(@page).tagged_with(@tag)
+      @snippets = Snippet.page(@page).tagged_with(@tag)
     else
-      @snippets = smart_sort Snippet.page(@page)
+      @snippets = Snippet.page(@page)
     end
   end
 
@@ -73,32 +73,5 @@ class SnippetsController < ApplicationController
   def correct_user
     snippet = current_user.snippets.unscoped.find_by_permalink(params[:id])
     redirect_to :root if snippet.nil?
-  end
-
-  def smart_sort snippets
-    snippets_sorted = Array.new
-
-    if not snippets.empty?
-      # Add first snippet to array
-      snippets_sorted << snippets.shift
-
-      # Add each snippet one at a time if the user id  and language id are different from the last
-      while not snippets.empty?
-        added = false
-        snippets.delete_if do |snippet|
-          break if added
-          if snippet.user_id != snippets_sorted.last.user_id && snippet.language_id != snippets_sorted.last.language_id
-            snippets_sorted << snippet
-            added = true
-          end
-        end
-        break if not added
-      end
-    end
-
-    # Add the rest of the snippets
-    snippets_sorted << snippets if not snippets.empty?
-
-    snippets_sorted
   end
 end
