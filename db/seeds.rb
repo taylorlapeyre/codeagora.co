@@ -118,4 +118,10 @@ func hello(name string) string {
   fmt.Println("Hello, " + name + "!")
 }
   }.strip},
+
+  {name: 'Lua', description: %Q{
+function hello(name)
+  print("Hello, " .. name .. "!")
+end
+  }.strip},
 ])
