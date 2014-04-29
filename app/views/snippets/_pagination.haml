@@ -1,7 +1,9 @@
+- max_page = (@snippets.count / Snippet::PAGE_SIZE) + 1
+
 %nav.pagination
   .container
     %ul
-    - (1..Snippet.page_count).each do |n|
+    - (1..max_page).each do |n|
       - if @page == n
         %li Page #{n}
       - else

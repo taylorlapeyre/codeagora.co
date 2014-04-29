@@ -25,10 +25,6 @@ class Snippet < ActiveRecord::Base
     permalink
   end
 
-  def self.page_count
-    Snippet.count / PAGE_SIZE
-  end
-
   def pretty_content
     require 'pygmentize'
     Pygmentize.process(content, language.to_pygments)
