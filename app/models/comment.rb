@@ -10,10 +10,12 @@ class Comment < ActiveRecord::Base
   after_create :notify_snippet_creator, unless: proc { |c| c.user == c.snippet.user }
   after_create :notify_other_commentors
 
+  # Renders the comment's content with markdown.
   def pretty_content
     markdown content
   end
 
+  # Run after every comment is created.
   def notify_snippet_creator
     message = "#{user.username} posted a comment on your snippet: #{snippet.name}."
 
@@ -21,6 +23,7 @@ class Comment < ActiveRecord::Base
     CommentsMailer.comment_notification_email(self).deliver
   end
 
+  # Also run after every comment creation.
   def notify_other_commentors
     message = "#{user.username} posted a comment on a snippet you've discussed before: #{snippet.name}."
 

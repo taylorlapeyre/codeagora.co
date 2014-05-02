@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 gem 'pg'
 gem 'jbuilder'
+gem 'sdoc'
 
 # misc
 gem 'bcrypt-ruby'

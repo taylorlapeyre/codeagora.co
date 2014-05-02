@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  # Deals with signing in users.
+
+  # The page for showing a form to sign in.
   def new
     if signed_in?
       flash.now[:error] = "You're already signed in."
@@ -6,6 +9,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # Creates a new session, authenticates with a passed in username & password.
   def create
     user = User.find_by_username params[:session][:username]
     if user && user.authenticate(params[:session][:password])
@@ -18,6 +22,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # Enables signing in with GitHub.
   def github_login
     auth = request.env['omniauth.auth']
     user = User.find_or_create_by_omniauth(auth)
@@ -30,6 +35,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # Sign out.
   def destroy
     sign_out
     redirect_to :root

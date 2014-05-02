@@ -1,6 +1,7 @@
 class NotificationsController < ApplicationController
   before_filter :set_notification
 
+  # Only used for marking a notification as `read`.
   def update
     if @notification.update notification_params
       head :ok

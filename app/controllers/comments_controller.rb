@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+
+  # Creates a new comment, only accepts json api requests.
   def create
     @comment = current_user.comments.new comment_params
     if @comment.save

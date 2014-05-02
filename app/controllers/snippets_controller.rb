@@ -3,6 +3,8 @@ class SnippetsController < ApplicationController
   before_filter :set_snippet,  only:   [:show, :edit, :update, :destroy]
   before_filter :correct_user, only:   [:edit, :update, :destroy]
 
+  # All of the snippets on the site, paginated and sorted by date created.
+  # Also takes in an optional `tag` parameter that shows only snippets with that tag.
   def index
     @page = params[:page] ? params[:page].to_i : 1
     @tag = params[:tag]
@@ -14,6 +16,7 @@ class SnippetsController < ApplicationController
     end
   end
 
+  # Shows a single snippet.
   def show
   end
 
